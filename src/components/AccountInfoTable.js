@@ -22,7 +22,7 @@ const AccountInfoTable = ({userInfo, username}) => (
                     <td>{userInfo.companyName}</td>
                 </tr>
                 <tr>
-                    <td>Adress</td>
+                    <td>Address</td>
                     <td>{userInfo.address}</td>
                 </tr>
             </tbody>

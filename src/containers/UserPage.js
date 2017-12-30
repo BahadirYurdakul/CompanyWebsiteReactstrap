@@ -21,15 +21,27 @@ const orderList = [
     {
         orderNo: "21341667766717",
         productName: "Product 1",
-        status: "On Progress",
+        status: "Yapım Aşamasında",
         cancelOrder: "false"
     },
     {
         orderNo: "92342661769717",
-        productName: "Product 2",
-        status: "Waiting",
+        productName: "Product 3",
+        status: "Onay bekleniyor",
         cancelOrder: "true"
     },
+    {
+        orderNo: "18341667766772",
+        productName: "Product 4",
+        status: "Yapım Aşamasında",
+        cancelOrder: "false"
+    },
+    {
+        orderNo: "49262661769982",
+        productName: "Product 5",
+        status: "Onay bekleniyor",
+        cancelOrder: "true"
+    }
 ];
 
 
@@ -41,7 +53,7 @@ export default class UserPage extends Component {
         const username = window.sessionStorage.getItem("username");
         return (
             <div style={{backgroundColor:"#F2F1F0", minHeight:"100%", height:"100%"}}>
-                <h1 style={{textAlign:"center", paddingTop:"30px"}}>Kişi Bilgileri</h1>
+                <h1 style={{textAlign:"center", paddingTop:"30px", marginBottom:"3%"}}>Kullanıcı Bilgileri</h1>
                 <Container className="col-9">
                     <AccountInfoTable userInfo={data} username={username}/>
                 </Container>

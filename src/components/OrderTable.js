@@ -1,7 +1,5 @@
 import React from 'react';
-import {Container, Nav, Navbar, NavItem, NavLink} from "reactstrap";
-import LoginModal from "./LoginModal";
-import SignUpModal from "./SignUpModal";
+import {Button} from "reactstrap";
 
 export default class OrderTable extends React.Component {
     constructor(props) {
@@ -11,29 +9,40 @@ export default class OrderTable extends React.Component {
     }
 
     cancelOrderClicked() {
-        this.loginModal.toggle();
-        window.sessionStorage.setItem("username", "BAHADIR");
         this.forceUpdate();
     }
 
 
     render() {
         const { orderList } = this.props;
-
+        let cancelOrderButton;
         const orders = orderList.map((item) => {
+            if(item.cancelOrder === "true")
+            {
+                cancelOrderButton = (<Button className="danger" disabled="true">Kaldır</Button>);
+            }else {
+                cancelOrderButton = (<Button className="success" disabled="true">Bu sipariş silinemez.</Button>);
+            }
+
             return (
-                <tr>
-                    <td>Order No</td>
-                    <td>{item.orderNo}</td>
-                </tr>
+                    <tr>
+                        <td>{item.orderNo}</td>
+                        <td>{item.productName}</td>
+                        <td>{item.status}</td>
+                        <td>{cancelOrderButton}</td>
+                    </tr>
             );
         });
         return (
-            <div style={{margin:"10px", borderTop:"2px groove", borderBottom:""}}>
-                <table class="table">
-                    <tbody>
+            <div style={{marginTop:"5%", marginBottom:"5%"}}>
+                <table class="table" border="2px">
+                        <tr style={{border:"2px solid black"}}>
+                            <th>Sipariş Numarası</th>
+                            <th>Ürün Adı</th>
+                            <th>Durum</th>
+                            <th>İptal Et</th>
+                        </tr>
                         {orders}
-                    </tbody>
                 </table>
             </div>
         );
