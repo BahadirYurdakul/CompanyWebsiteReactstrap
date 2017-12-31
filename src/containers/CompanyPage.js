@@ -25,7 +25,7 @@ const data = [
 export default class CompanyPage extends Component {
     render() {
         return (
-            <div style={{backgroundColor:"#F2F1F0"}}>
+            <div style={{backgroundColor:"#F2F1F0", minWidth: "800px"}}>
                 <Container className="col-lg">
                         <table border="2px solid black">
                             <tbody>

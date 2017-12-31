@@ -13,7 +13,7 @@ export default class ProductsCard extends Component {
             <FormGroup className="col-12" fluid={true}>
                 <div className="col-9" style={{marginLeft:"auto", marginRight:"auto"}}>
                     <Label for="exampleSelect">Ürün Seç</Label>
-                    <Input type="select" name="select" id="exampleSelect">
+                    <Input type="select" className="custom-select" name="select" id="exampleSelect">
                         {ProductsInputGroup}
                     </Input>
                 </div>

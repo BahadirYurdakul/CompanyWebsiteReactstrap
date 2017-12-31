@@ -36,7 +36,7 @@ class ShopPage extends Component {
         }
         
         return (
-            <div style={{backgroundColor:"#F2F1F0", height:"100%", paddingTop:"10px"}}>
+            <div style={{backgroundColor:"#F2F1F0", height:"100%", paddingTop:"10px", minWidth: "800px"}}>
                 <Container className="col-9">
                         <table>
                                 <tr>

@@ -5,7 +5,7 @@ const CompanyInfoCard = ({ url }) => (
 
         <Container fluid={true}>
                 <Container className="col-6" fluid={true}>
-                    <img className="col-xl-12"
+                    <img className="col-xl-12" style={{minWidth:"250px"}}
                         src="http://3.bp.blogspot.com/-wdaB8coBOYs/Vi_pZE7tKiI/AAAAAAAAcYk/fZTEdlWn_sY/s1600/fabrika.jpg"
                          alt="CVS makine"/>
                 </Container>

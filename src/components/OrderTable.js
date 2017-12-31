@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from "reactstrap";
+import {button} from "react-bootstrap";
 
 export default class OrderTable extends React.Component {
     constructor(props) {
@@ -12,16 +12,18 @@ export default class OrderTable extends React.Component {
         this.forceUpdate();
     }
 
-
     render() {
         const { orderList } = this.props;
         let cancelOrderButton;
+
         const orders = orderList.map((item) => {
             if(item.cancelOrder === "true")
             {
-                cancelOrderButton = (<Button className="danger" disabled="true">Kaldır</Button>);
+                cancelOrderButton = (<button type="button" class="btn-danger">
+                    <span color="#FFFFFF" class="glyphicon"><h5>İptal Et</h5></span>
+                </button>);
             }else {
-                cancelOrderButton = (<Button className="success" disabled="true">Bu sipariş silinemez.</Button>);
+                cancelOrderButton = (<h5><div>Bu sipariş iptal edilemez.</div></h5>);
             }
 
             return (

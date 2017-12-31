@@ -17,7 +17,7 @@ export default class OrderTable extends React.Component {
 
         return (
             <div className="col-7" style={{fontSize:"20px"
-                , marginTop:"50px", marginLeft:"auto", marginRight:"auto", minWidth:"200px", minHeight:"250px"}}>
+                , marginTop:"50px", marginLeft:"auto", marginRight:"auto", minWidth:"200px", minHeight:"250px", paddingBottom:"20px"}}>
                 <Form>
                     <FormGroup>
                         <textarea className="col-10" style={{verticalAlign:"middle"}}

@@ -13,18 +13,19 @@ export default class InfoBox extends Component {
                 , marginBottom: "0px"
                 , left: "0"
                 , padding: "0px"
+                , minWidth: "800px"
                 , textAlign: "center"}}
             >
                 <Container fluid className="card-footer">
                     <Container className="col-10">
                     <div align="right">
                         <a href="https://www.facebook.com/cvsmakine" >
-                            <img className="col-2" style={{marginRight:'60px'}}
+                            <img className="col-2" style={{marginRight:'60px', minWidth:"150px"}}
                                  src="http://www.fjcgtownhorry.org/images/FacebookLogo.jpg"
                                  alt="Facebook CVS Makine"/>
                         </a>
                         <a href="https://www.instagram.com/" >
-                            <img className="col-2" style={{marginRight:'30px', marginTop:"5px"}}
+                            <img className="col-2" style={{marginRight:'30px', marginTop:"5px", minWidth:"150px"}}
                                  src="http://d24gm8viwxmokc.cloudfront.net/assets/instagram-logo-w-dee91fcc2a6eb4ec26b2524868fdac9d.png"
                                  alt="Instagram CVS Makine"/>
                         </a>

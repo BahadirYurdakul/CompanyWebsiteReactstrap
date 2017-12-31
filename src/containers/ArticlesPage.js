@@ -42,7 +42,7 @@ class ArticlesPage extends Component {
             date: data[0].date
         }
         return (
-            <div style={{backgroundColor:"#F2F1F0"}}>
+            <div style={{backgroundColor:"#F2F1F0",minWidth:"800px"}}>
                 <Container className="col-lg">
                     <div style={{border:"2px solid black", marginBottom:"10px"}}>
                     <table border="0px">
@@ -51,7 +51,7 @@ class ArticlesPage extends Component {
                             <td style={{verticalAlign:"top", borderRight:"2px solid black"}}>
                                 <List data={data}/>
                             </td>
-                            <td style={{width:"100%"}}>
+                            <td style={{width:"100%", minWidth:"300px"}}>
                                 <CompanyInfoCard/>
                             </td>
                         </tr>

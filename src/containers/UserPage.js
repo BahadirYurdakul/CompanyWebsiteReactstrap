@@ -7,10 +7,14 @@ import CompanyInfoCard from "../components/CompanyInfoCard";
 import AccountInfoTable from "../components/AccountInfoTable";
 import OrderTable from "../components/OrderTable";
 import PaginationComponent from "../components/PaginationComponent";
+import ProductsPage from "./ProductsPage";
+import MainPage from "./MainPage";
+import Route from "react-router-dom/es/Route";
 
 const data =
     {
         name: "Bahadır Yurdakul",
+        email: "lorem@loremmail.com",
         telephone: "0555 555 55 55",
         companyName: "Unemployed :)",
         address: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. " +
@@ -51,8 +55,14 @@ const orderList = [
 export default class UserPage extends Component {
     render() {
         const username = window.sessionStorage.getItem("username");
+        if(username === null)
+        {
+            window.location.replace("#");
+            alert("Lütfen önce üye girişi yapın");
+        }
+
         return (
-            <div style={{backgroundColor:"#F2F1F0", minHeight:"100%", height:"100%"}}>
+            <div style={{backgroundColor:"#F2F1F0", minHeight:"100%", height:"100%", minWidth: "800px"}}>
                 <h1 style={{textAlign:"center", paddingTop:"30px", marginBottom:"3%"}}>Kullanıcı Bilgileri</h1>
                 <Container className="col-9">
                     <AccountInfoTable userInfo={data} username={username}/>

@@ -14,6 +14,10 @@ const AccountInfoTable = ({userInfo, username}) => (
                     <td>{username}</td>
                 </tr>
                 <tr>
+                    <td>Email</td>
+                    <td>{userInfo.email}</td>
+                </tr>
+                <tr>
                     <td>Telefon</td>
                     <td>{userInfo.telephone}</td>
                 </tr>

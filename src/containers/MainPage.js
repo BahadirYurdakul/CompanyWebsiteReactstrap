@@ -82,7 +82,7 @@ const cardList = [
 class Main extends Component {
     render() {
         return (
-            <div style={{backgroundColor:"#F2F1F0", marginBottom:"10px"}}>
+            <div style={{backgroundColor:"#F2F1F0", marginBottom:"10px", minWidth: "800px"}}>
                 <Container className="col-9">
                     <Carousel items={itemList}/>
                 </Container>

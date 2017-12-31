@@ -39,7 +39,7 @@ export default class Header extends React.Component {
             let usernameClickedPath = "#/user/";
             firstNavBarLogin =
                 <NavLink setyle={{color:"#000000"}} href={usernameClickedPath}>
-                    <h5 style={{marginLeft:15, marginRight:15, color:"#1E90FF"}}>Hoşgeldin {username}</h5>
+                    <h5 style={{marginLeft:15, marginRight:15, color:"#1E90FF", fontSize:"20px"}}>Hoşgeldin {username}</h5>
                 </NavLink>;
             secondNavBarSignUp = <NavLink href="#" onClick={() => this.logOutClicked()}>Çıkış Yap</NavLink>;
         }else {
@@ -48,12 +48,14 @@ export default class Header extends React.Component {
         }
 
         return (
-            <div>
+            <div style={{minWidth: "800px"}}>
                 <Navbar className="navbar-light" expand="md">
                     <Container>
                         <Nav className="align-items-lg-center" navbar>
                             <NavItem>
-                                <img src={"http://www.freelogovectors.net/wp-content/uploads/2012/09/Erdemir-Demir-Celik-Logo.jpg"} height={"70"} alt="logo" />
+                                <img src={"http://www.freelogovectors.net/wp-content" +
+                                "/uploads/2012/09/Erdemir-Demir-Celik-Logo.jpg"} height={"70"} alt="logo"
+                                style={{minWidth:"50px"}}/>
                             </NavItem>
                         </Nav>
                         <Nav navbar>

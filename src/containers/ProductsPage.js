@@ -68,7 +68,7 @@ const products = [
 class Main extends Component {
     render() {
         return (
-            <div style={{backgroundColor:"#F2F1F0", height:"100%"}}>
+            <div style={{backgroundColor:"#F2F1F0", height:"100%", minWidth: "800px"}}>
                 <div>
                         <ProductsCard products={products}/>
                 </div>
