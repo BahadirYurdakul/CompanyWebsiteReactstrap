@@ -75,8 +75,8 @@ export default class signUpModal extends React.Component {
                         </Form>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={() => this.SubmitCLicked()}>Onayla</Button>
-                        <Button color="secondary" onClick={this.toggle}>İptal</Button>
+                        <button type="button" className="btn-secondary" onClick={this.toggle}>İptal</button>
+                        <button type="button" className="btn-primary" onClick={() => this.SubmitCLicked()}>Onayla</button>
                     </ModalFooter>
                 </Modal>
             </div>
