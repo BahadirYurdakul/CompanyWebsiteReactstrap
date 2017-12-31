@@ -83,13 +83,3 @@ export default class signUpModal extends React.Component {
         );
     }
 }
-
-//
-// 	“Username”*: “username”,
-// "Name"*: "accountName",
-// 	“Email”*: “e@mail.com”,
-// “Password”*: “account_password”,
-// "Telephone"*: "05555555555",
-//     "Position": "Position in company",
-//     "Company Name": "company Name",
-//     "Company Adress": "Address"
