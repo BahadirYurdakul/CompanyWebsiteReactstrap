@@ -39,7 +39,7 @@ class ArticlesPage extends Component {
 
     async componentDidMount() {
         let data = await module.getArticles(0);
-        alert(data);
+        alert("boş" + data);
     }
 
     render() {

@@ -1,6 +1,9 @@
-const ArticlePath = 'https://localhost:9000/getarticles/';
+const ArticlePath = 'https://localhost:9000/articles/';
 const apigiphypath = 'https://api.giphy.com/v1/gifs/random';
+
+
 const getObjectFromJson = response => response.json();
+const responseStringify = response => JSON.stringify(response);
 
 const nullIfNotOk = (response) => {
     if (!response.ok) {
@@ -13,14 +16,38 @@ const sleep = (msecs) => (
     results => new Promise(resolve => setTimeout(() => resolve(results), msecs))
 );
 
+
 const getArticles = (page) => {
-    const url = `127.0.0.1:9000/getarticles/0`
+    const url = `${ArticlePath}/getarticles/page/${page}`
 
     return fetch(url, {
-        method: 'GET',
+        method: 'get',
+        headers: new Headers({
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
+        })
     })
         .then(getObjectFromJson)
         .then(nullIfNotOk)
+        .then(responseStringify)
+        .catch(function(err) {
+            alert(err)
+        })
+};
+
+const getArticle = (title) => {
+    const url = `${ArticlePath}//getarticalinfo/title/${title}`
+
+    return fetch(url, {
+        method: 'get',
+        headers: new Headers({
+            'Content-Type': 'text/plain',
+            'Access-Control-Allow-Origin': 'http://localhost:9000'
+        })
+    })
+        .then(getObjectFromJson)
+        .then(nullIfNotOk)
+        .then(responseStringify)
         .catch(function(err) {
             alert(err)
         })
@@ -36,16 +63,19 @@ const loadGiphy = (query) => {
 
     return fetch(url2, {
         method: 'get',
+        headers: new Headers({
+            'Content-Type': 'text/plain'
+        })
     })
         .then(getObjectFromJson)
-        .then((response) => {
-            return JSON.stringify(response);
-        }).catch(function(err) {
+        .then(responseStringify)
+        .catch(function(err) {
             return null;
         })
 };
 
 export default module = {
     getArticles: getArticles,
-    loadGiphy: loadGiphy
+    loadGiphy: loadGiphy,
+    getArticle: getArticle
 }
