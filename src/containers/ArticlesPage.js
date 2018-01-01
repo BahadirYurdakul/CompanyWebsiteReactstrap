@@ -6,6 +6,7 @@ import List from "../components/List";
 import CompanyInfoCard from "../components/CompanyInfoCard";
 import PaginationComponent from "../components/PaginationComponent";
 import AuthorAndDateInfo from "../components/AuthorAndDateInfo";
+import module from '../api/ArticleAPI';
 
 const data = [
     {
@@ -35,6 +36,11 @@ const data = [
 ];
 
 class ArticlesPage extends Component {
+
+    async componentDidMount() {
+        let data = await module.getArticles(0);
+        alert(data);
+    }
 
     render() {
         let props = {
