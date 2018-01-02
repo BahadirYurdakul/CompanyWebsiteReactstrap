@@ -37,16 +37,25 @@ const data = [
 
 class ArticlesPage extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: [],
+            dateAndAuthor: []
+        };
+    }
+
     async componentDidMount() {
         let data = await module.getArticles(0);
-        alert("boş" + data);
+        let date = data[0].date;
+        let author = data[0].author;
+        this.setState({ data });
+        this.setState({ date });
+        this.setState({ author });
     }
 
     render() {
-        let props = {
-            author: data[0].author,
-            date: data[0].date
-        }
         return (
             <div style={{backgroundColor:"#F2F1F0",minWidth:"800px"}}>
                 <Container className="col-lg">
@@ -55,7 +64,7 @@ class ArticlesPage extends Component {
                         <tbody>
                         <tr>
                             <td style={{verticalAlign:"top", borderRight:"2px solid black"}}>
-                                <List data={data}/>
+                                <List data={this.state.data}/>
                             </td>
                             <td style={{width:"100%", minWidth:"300px"}}>
                                 <CompanyInfoCard/>
@@ -64,7 +73,7 @@ class ArticlesPage extends Component {
                         <tr>
                             <td style={{borderTop:"2px solid black", borderRight:"2px solid black"}}><PaginationComponent/></td>
                             <td>
-                                <AuthorAndDateInfo props={props}/>
+                                <AuthorAndDateInfo date={this.state.date} author={this.state.author}/>
                             </td>
                         </tr>
                         </tbody>

@@ -12,7 +12,7 @@ export default class List extends React.Component {
             return (
                 <li style={{marginTop:"0px"}}>
                     <Button color="dark" className="btn-block" size="lg">
-                        {item.caption}
+                        {item.title}
                     </Button>
                 </li>
             );

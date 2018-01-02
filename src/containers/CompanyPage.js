@@ -9,15 +9,15 @@ import CompanyInfoCard from "../components/CompanyInfoCard";
 const data = [
     {
         id: '1',
-        caption: "Hakkımızda"
+        title: "Hakkımızda"
     },
     {
         id: '2',
-        caption: "Referanslar"
+        title: "Referanslar"
     },
     {
         id: '3',
-        caption: "Misyon Vizyon"
+        title: "Misyon Vizyon"
     }
 ];
 
