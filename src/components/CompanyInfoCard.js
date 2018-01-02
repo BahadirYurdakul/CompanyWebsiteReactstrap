@@ -1,12 +1,12 @@
 import React from 'react';
 import {Container} from "reactstrap";
 
-const CompanyInfoCard = ({ url }) => (
+const CompanyInfoCard = ({photoLink}) => (
 
         <Container fluid={true}>
                 <Container className="col-6" fluid={true}>
                     <img className="col-xl-12" style={{minWidth:"250px"}}
-                        src="http://3.bp.blogspot.com/-wdaB8coBOYs/Vi_pZE7tKiI/AAAAAAAAcYk/fZTEdlWn_sY/s1600/fabrika.jpg"
+                        src={photoLink}
                          alt="CVS makine"/>
                 </Container>
             <div style={{margin:"30px 10px"}}>

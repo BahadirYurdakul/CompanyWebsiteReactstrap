@@ -9,6 +9,10 @@
   color: white;
 }
 
+.body {
+  background-color: #F2F1F0;
+}
+
 .App-title {
   font-size: 1.5em;
 }

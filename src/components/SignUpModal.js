@@ -64,12 +64,12 @@ export default class signUpModal extends React.Component {
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="password">Şifre</Label>
+                                <Label for="password">Şifre*</Label>
                                 <Input type="password" name="password" id="password" placeholder="Şifre" />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="password2">Şifrenizi Onaylayın</Label>
+                                <Label for="password2">Şifrenizi Onaylayın*</Label>
                                 <Input type="password" name="password2" id="password2" placeholder="Şifrenizi Onaylayın" />
                             </FormGroup>
                         </Form>

@@ -34,7 +34,8 @@ export default class CompanyPage extends Component {
                                     <List data={data}/>
                                 </td>
                                 <td style={{width:"100%"}}>
-                                    <CompanyInfoCard/>
+                                    <CompanyInfoCard photoLink={"http://3.bp.blogspot.com" +
+                                    "/-wdaB8coBOYs/Vi_pZE7tKiI/AAAAAAAAcYk/fZTEdlWn_sY/s1600/fabrika.jpg"}/>
                                 </td>
                             </tr>
                             </tbody>

@@ -8,33 +8,6 @@ import PaginationComponent from "../components/PaginationComponent";
 import AuthorAndDateInfo from "../components/AuthorAndDateInfo";
 import module from '../api/ArticleAPI';
 
-const data = [
-    {
-        id: '1',
-        caption: "İş güvenliği",
-        description: '<p>Basarili</p>',
-        src: '',
-        author: "Sir Conan",
-        date: "27 July 2017"
-    },
-    {
-        id: '2',
-        caption: "Makinelerin güvenliği",
-        description: '<h1>Basarili</h1>',
-        src: '',
-        author: "Sir Conan",
-        date: "27 July 2017"
-    },
-    {
-        id: '3',
-        caption: "Article 3",
-        description: '<p>Basarili</p>',
-        src: '',
-        author: "Sir Conan",
-        date: "27 July 2017"
-    }
-];
-
 class ArticlesPage extends Component {
 
     constructor(props) {
@@ -50,12 +23,16 @@ class ArticlesPage extends Component {
         let data = await module.getArticles(0);
         let date = data[0].date;
         let author = data[0].author;
+        let photoLink = data[0].photoLink;
+        let content = data[0].content;
         this.setState({ data });
         this.setState({ date });
         this.setState({ author });
+        this.setState({ photoLink });
     }
 
     render() {
+        let link = 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Cate_Blanchett_2011.jpg';
         return (
             <div style={{backgroundColor:"#F2F1F0",minWidth:"800px"}}>
                 <Container className="col-lg">
@@ -67,7 +44,7 @@ class ArticlesPage extends Component {
                                 <List data={this.state.data}/>
                             </td>
                             <td style={{width:"100%", minWidth:"300px"}}>
-                                <CompanyInfoCard/>
+                                <CompanyInfoCard photoLink={this.state.photoLink}/>
                             </td>
                         </tr>
                         <tr>
