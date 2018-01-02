@@ -21,20 +21,27 @@ const sleep = (msecs) => (
 const getArticles = (page) => {
     const url = `${ArticlePath}/getarticles/page/${page}`;
 
-    return fetch(url)
+    return fetch(url, {
+        method: 'get',
+        mode: 'no_cors',
+        headers: new Headers({
+            'Content-Type': 'text/plain',
+        })
+    })
         .then(getObjectFromJson)
         .then(nullIfNotOk)
         .then(responseStringify)
         .catch(function(err) {
             alert(err)
-        })
+        });
 };
 
 const getArticle = (title) => {
-    const url = `${ArticlePath}//getarticalinfo/title/${title}`
+    const url = `${ArticlePath}//getarticalinfo/title/${title}`;
 
     return fetch(url, {
         method: 'get',
+        mode: 'no_cors',
         headers: new Headers({
             'Content-Type': 'text/plain',
             'Access-Control-Allow-Origin': 'http://localhost:9000'
