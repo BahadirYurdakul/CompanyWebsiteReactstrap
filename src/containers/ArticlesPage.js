@@ -24,11 +24,13 @@ class ArticlesPage extends Component {
         let date = data[0].date;
         let author = data[0].author;
         let photoLink = data[0].photoLink;
-        let content = data[0].content;
+        let htmlContent = data[0].content;
+        let content = <div dangerouslySetInnerHTML={{ __html:htmlContent}}/>;
         this.setState({ data });
         this.setState({ date });
         this.setState({ author });
         this.setState({ photoLink });
+        this.setState({content});
     }
 
     render() {
@@ -44,7 +46,7 @@ class ArticlesPage extends Component {
                                 <List data={this.state.data}/>
                             </td>
                             <td style={{width:"100%", minWidth:"300px"}}>
-                                <CompanyInfoCard photoLink={this.state.photoLink}/>
+                                <CompanyInfoCard photoLink={this.state.photoLink} content={this.state.content}/>
                             </td>
                         </tr>
                         <tr>

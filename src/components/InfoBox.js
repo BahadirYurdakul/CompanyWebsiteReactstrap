@@ -13,9 +13,11 @@ export default class InfoBox extends Component {
                     <hr className="my-2" />
                     <p>{info}</p>
                     <p className="lead col-4">
-                            <button href="#/aboutUs" color="blue" className="btn-primary" type="button">
+                        <a href="#/aboutUs">
+                            <button color="blue" className="btn-primary" type="button">
                                 <span class="glyphicon">Daha fazla okumak için</span>
                             </button>
+                        </a>
                     </p>
                 </Jumbotron>
             </Container>
