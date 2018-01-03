@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ProductsCard from "../components/ProductsCard";
 import PaginationComponent from "../components/PaginationComponent";
 import {Container} from "reactstrap";
+import module from "../api/ArticleAPI";
+import LoadError from "../components/Error";
 
 
 const products = [
@@ -66,15 +68,31 @@ const products = [
 
 
 class Main extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            loadErr: false
+        };
+    }
+
+    async componentDidMount() {
+        //
+    }
+
+
     render() {
         return (
-            <div style={{backgroundColor:"#F2F1F0", height:"100%", minWidth: "800px"}}>
-                <div>
-                        <ProductsCard products={products}/>
-                </div>
-                <Container>
-                         <PaginationComponent link="products/" />
-                </Container>
+            <div>
+                {this.state.loadErr ? <LoadError/> :
+                <div style={{backgroundColor:"#F2F1F0", height:"100%", minWidth: "800px"}}>
+                    <div>
+                            <ProductsCard products={products}/>
+                    </div>
+                    <Container>
+                             <PaginationComponent link="products/" />
+                    </Container>
+                </div>}
             </div>
         );
     }

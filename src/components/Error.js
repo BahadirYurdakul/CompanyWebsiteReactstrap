@@ -1,8 +1,8 @@
 import React from 'react';
 
 const LoadError = () => (
-    <div>
-        Something Bad Happened. We will fix this issue as soon as possible.
+    <div style={{textAlign:"center", margin:"40px", fontSize:"30px"}}>
+        Beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin.
     </div>
 );
 

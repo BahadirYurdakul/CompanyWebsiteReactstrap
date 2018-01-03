@@ -9,6 +9,7 @@ import AuthorAndDateInfo from "../components/AuthorAndDateInfo";
 import ProductsCardInfo from "../components/ProductsCardInfo";
 import ChooseProduct from "../components/ChooseProduct";
 import TextArea from "../components/TextArea";
+import LoadError from "../components/Error";
 
 const data =
     {
@@ -27,6 +28,17 @@ const productsList = [
 ];
 
 class ShopPage extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            loadErr: false
+        };
+    }
+
+    async componentDidMount() {
+        //
+    }
 
     render() {
         let name_summary_photo = {
@@ -36,62 +48,66 @@ class ShopPage extends Component {
         }
         
         return (
-            <div style={{backgroundColor:"#F2F1F0", height:"100%", paddingTop:"10px", minWidth: "800px"}}>
-                <Container className="col-9">
-                        <table>
-                                <tr>
-                                    <td>
-                                        <img className="col-md-12" style={{minWidth:"300px",minHeight:"300px"}}
-                                             href="#" top src={data.src} alt="Ürün fotoğrafı"/>
-                                    </td>
-                                    <td style={{width:"100%",verticalAlign:"top"}}>
-                                        <ProductsCardInfo info={data.actualProperty} caption={data.name}/>
-                                    </td>
-                                </tr>
+            <div>
+                {this.state.loadErr ? <LoadError/> :
+                    <div style={{backgroundColor:"#F2F1F0", height:"100%", paddingTop:"10px", minWidth: "800px"}}>
+                        <Container className="col-9">
+                                <table>
+                                        <tr>
+                                            <td>
+                                                <img className="col-md-12" style={{minWidth:"300px",minHeight:"300px"}}
+                                                     href="#" top src={data.src} alt="Ürün fotoğrafı"/>
+                                            </td>
+                                            <td style={{width:"100%",verticalAlign:"top"}}>
+                                                <ProductsCardInfo info={data.actualProperty} caption={data.name}/>
+                                            </td>
+                                        </tr>
 
-                                <tr>
-                                    <td>
-                                        <div style={{border:"3px solid black"
-                                            , marginLeft:"20px", marginTop:"30px", paddingLeft:"10px"
-                                            , fontSize:"20px"}}>
-                                            Diğer ürünlerimiz
-                                        </div>
-                                    </td>
-                                    <td style={{width:"100%"}}>
-                                        <ChooseProduct productsList={productsList}/>
-                                    </td>
-                                </tr>
+                                        <tr>
+                                            <td>
+                                                <div style={{border:"3px solid black"
+                                                    , marginLeft:"20px", marginTop:"30px", paddingLeft:"10px"
+                                                    , fontSize:"20px"}}>
+                                                    Diğer ürünlerimiz
+                                                </div>
+                                            </td>
+                                            <td style={{width:"100%"}}>
+                                                <ChooseProduct productsList={productsList}/>
+                                            </td>
+                                        </tr>
 
 
-                                <tr>
-                                    <td>
-                                        <div style={{border:"3px solid black"
-                                            , marginLeft:"20px", marginTop:"30px"
-                                            , paddingLeft:"10px", fontSize:"20px"}}>
-                                            Tahmini Teslim Tarihi
-                                        </div>
-                                    </td>
-                                    <td style={{width:"100%"}}>
-                                        <div className="col-lg" style={{fontSize:"20px", textAlign:"center"
-                                            , marginTop:"30px"}}>{data.EstimatedArrivalTime}
-                                            </div>
-                                    </td>
-                                </tr>
+                                        <tr>
+                                            <td>
+                                                <div style={{border:"3px solid black"
+                                                    , marginLeft:"20px", marginTop:"30px"
+                                                    , paddingLeft:"10px", fontSize:"20px"}}>
+                                                    Tahmini Teslim Tarihi
+                                                </div>
+                                            </td>
+                                            <td style={{width:"100%"}}>
+                                                <div className="col-lg" style={{fontSize:"20px", textAlign:"center"
+                                                    , marginTop:"30px"}}>{data.EstimatedArrivalTime}
+                                                    </div>
+                                            </td>
+                                        </tr>
 
-                                <tr>
-                                    <td>
-                                        <div style={{border:"3px solid black", marginLeft:"20px"
-                                            , marginTop:"30px", fontSize:"20px", paddingLeft:"10px"
-                                            , verticalAlign:"top"}}>
-                                            İstenen Özellikler
-                                        </div>
-                                    </td>
-                                    <td style={{width:"100%", verticalAlign:"top"}}>
-                                        <TextArea placeholder="Ürününüzü özelleştirin"/>
-                                    </td>
-                                </tr>
-                        </table>
-                </Container>
+                                        <tr>
+                                            <td>
+                                                <div style={{border:"3px solid black", marginLeft:"20px"
+                                                    , marginTop:"30px", fontSize:"20px", paddingLeft:"10px"
+                                                    , verticalAlign:"top"}}>
+                                                    İstenen Özellikler
+                                                </div>
+                                            </td>
+                                            <td style={{width:"100%", verticalAlign:"top"}}>
+                                                <TextArea placeholder="Ürününüzü özelleştirin"/>
+                                            </td>
+                                        </tr>
+                                </table>
+                        </Container>
+                    </div>
+                }
             </div>
         );
     }

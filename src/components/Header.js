@@ -24,7 +24,7 @@ export default class Header extends React.Component {
     logOutClicked() {
         //token sil.
         //sayfayı güncelle.
-        //window.sessionStorage.removeItem("username");
+        window.sessionStorage.removeItem("username");
         this.forceUpdate();
         return;
     }

@@ -4,15 +4,16 @@ import {Pagination, PaginationItem, PaginationLink} from 'reactstrap';
 export default class PaginationComponent extends React.Component {
     render() {
         const { link } = this.props;
+
         return (
             <div style={{margin:"5px"}}>
                 <Pagination className="justify-content-center" size="lg">
                     <PaginationItem>
-                        <PaginationLink previous href="#" />
+                        <PaginationLink previous/>
                     </PaginationItem>
                     <PaginationItem active>
                         <PaginationLink href={link + '1'}>
-                                1
+                            <a>1</a>
                         </PaginationLink>
                     </PaginationItem>
                     <PaginationItem>

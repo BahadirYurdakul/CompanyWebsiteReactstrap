@@ -21,7 +21,7 @@ let fetchData = function(url) {
     })
         .then(getObjectFromJson)
         .catch(function(err) {
-            alert(err)
+            console.log(err);
         });
 }
 
