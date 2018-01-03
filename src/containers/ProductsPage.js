@@ -70,7 +70,7 @@ const products = [
 class Main extends Component {
     constructor(props) {
         super(props);
-
+        this.onClick = this.onClick.bind(this);
         this.state = {
             loadErr: false
         };
@@ -78,6 +78,10 @@ class Main extends Component {
 
     async componentDidMount() {
         //
+    }
+
+    onClick(index) {
+        alert(index);
     }
 
 
@@ -90,7 +94,7 @@ class Main extends Component {
                             <ProductsCard products={products}/>
                     </div>
                     <Container>
-                             <PaginationComponent link="products/" />
+                             <PaginationComponent onClick={this.onClick} activeIndex={1} startingIndex={1} endIndex={3}  />
                     </Container>
                 </div>}
             </div>

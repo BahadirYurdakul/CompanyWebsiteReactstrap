@@ -3,32 +3,44 @@ import {Pagination, PaginationItem, PaginationLink} from 'reactstrap';
 
 export default class PaginationComponent extends React.Component {
     render() {
-        const { link } = this.props;
+        const { onClick, activeIndex, startingIndex, endIndex } = this.props;
+        let PaginationItemGroup = [];
+
+        if(startingIndex > 0)
+        {
+            PaginationItemGroup.push (
+                <PaginationItem>
+                    <a onClick={() => onClick(startingIndex - 1)}>
+                        <PaginationLink previous/>
+                    </a>
+                </PaginationItem>
+            );
+        }
+
+        for (let i = startingIndex; i <= endIndex; i++) {
+            let isActive = (activeIndex === i);
+            PaginationItemGroup.push(
+                <PaginationItem active={isActive}>
+                    <a key={i} onClick={() => onClick(i)}>
+                        <PaginationLink>{i}</PaginationLink>
+                    </a>
+                </PaginationItem>
+            );
+        }
+
+        PaginationItemGroup.push (
+            <PaginationItem>
+                <a onClick={() => onClick(endIndex + 1)}>
+                    <PaginationLink next/>
+                </a>
+            </PaginationItem>
+        );
+
 
         return (
             <div style={{margin:"5px"}}>
                 <Pagination className="justify-content-center" size="lg">
-                    <PaginationItem>
-                        <PaginationLink previous/>
-                    </PaginationItem>
-                    <PaginationItem active>
-                        <PaginationLink href={link + '1'}>
-                            <a>1</a>
-                        </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                        <PaginationLink href={link + '2'}>
-                            2
-                        </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                        <PaginationLink href={link + '3'}>
-                            3
-                        </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                        <PaginationLink next/>
-                    </PaginationItem>
+                    {PaginationItemGroup}
                 </Pagination>
             </div>
         );
