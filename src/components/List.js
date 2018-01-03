@@ -2,9 +2,6 @@ import React from 'react';
 import {Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, Container} from 'reactstrap';
 
 export default class List extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         let {onClick} = this.props;

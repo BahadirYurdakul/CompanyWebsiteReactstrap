@@ -15,7 +15,6 @@ import UserPage from "../containers/UserPage";
 
 class App extends Component {
     render() {
-        window.sessionStorage.removeItem("username");
         return (
             <HashRouter>
                 <div>

@@ -35,28 +35,6 @@ const getArticle = (title) => {
     fetchData(url);
 };
 
-const getUrl = response => response.data.fixed_height_downsampled_url;
-
-const loadGiphy = (query) => {
-    const encodedQuery = encodeURIComponent(query);
-    const url = `${apigiphypath}?api_key=hdjYwawHd0qFt5l8DqgH27akdJSHKJbE&tag=${encodedQuery}`;
-    const url2 = `http://api.giphy.com/v1/gifs/search?q=dog
-        &api_key=hdjYwawHd0qFt5l8DqgH27akdJSHKJbE&limit=1`;
-
-    return fetch(url2, {
-        method: 'get',
-        mode: 'no_cors',
-        headers: new Headers({
-            'Content-Type': 'text/plain'
-        })
-    })
-        .then(getObjectFromJson)
-        .then(responseStringify)
-        .catch(function(err) {
-            return null;
-        })
-};
-
 export default module = {
     getArticles: getArticles,
     getArticle: getArticle
