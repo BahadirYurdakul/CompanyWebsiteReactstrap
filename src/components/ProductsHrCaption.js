@@ -1,7 +1,7 @@
 import React from 'react';
 import {Container} from "reactstrap";
 
-const urunlerimizBaslik = () => (
+const productsHrCaption = () => (
 
     <Container className="col-8">
         <h2 style={{
@@ -22,4 +22,4 @@ const urunlerimizBaslik = () => (
     </Container>
 );
 
-export default urunlerimizBaslik;
+export default productsHrCaption;

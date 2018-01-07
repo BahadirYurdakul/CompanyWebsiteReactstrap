@@ -15,63 +15,88 @@ class ArticlesPage extends Component {
         super(props);
         this.articleListOnClick = this.articleListOnClick.bind(this);
         this.pageOnCLick = this.pageOnCLick.bind(this);
+        this.setStatesByIndex = this.setStatesByIndex.bind(this);
+        this.fetchAndSetArticles = this.fetchAndSetArticles.bind(this);
 
         this.state = {
             data: [],
-            dateAndAuthor: [],
+            activePage: 1,
+            articleIndex: 0,
             loadErr: false
         };
     }
 
     async componentDidMount() {
-        let data = await module.getArticles(0);
-        if(data === undefined)
-        {
-            this.setState({loadErr:true})
-            return;
-        }
+        this.fetchAndSetArticles(0, this.state.activePage);
+    }
 
-        let date = data[0].date;
-        let author = data[0].author;
-        let photoLink = data[0].photoLink;
-        let htmlContent = data[0].content;
+    setStatesByIndex(data, index, page){
+        if(page < 1)
+            page = 1;
+        if(index < 0)
+            index = 0
+
+        let htmlContent = data[index].content;
         let content = <div dangerouslySetInnerHTML={{ __html:htmlContent}}/>;
-        this.setState({ data });
-        this.setState({ date });
-        this.setState({ author });
-        this.setState({ photoLink });
-        this.setState({content});
+        this.setState(
+            {
+                date: data[index].date,
+                author:  data[index].author,
+                photoLink: data[index].photoLink,
+                content: content,
+                activePage: page,
+                articleIndex: index,
+            }
+        );
     }
 
     articleListOnClick(index) {
-        alert(index);
+        this.setStatesByIndex(this.state.data, index, this.state.activePage);
     }
 
     pageOnCLick(index) {
-        alert(index);
+        if(this.state.activePage === index)
+            return;
+        this.fetchAndSetArticles(0, index);
+    }
+
+    async fetchAndSetArticles(articleIndex, page){
+        let data = await module.getArticles(page - 1);
+        if(data === undefined)
+        {
+            this.setState({loadErr:true});
+            return;
+        }
+
+        if(data.length === 0)
+            return;
+
+        this.setState({data: data});
+        this.setStatesByIndex(data, articleIndex, page);
     }
 
     render() {
-        let link = 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Cate_Blanchett_2011.jpg';
         return (
             <div>
                 {this.state.loadErr ? <LoadError/> :
                     <div style={{backgroundColor:"#F2F1F0",minWidth:"800px"}}>
                         <Container className="col-lg">
-                            <div style={{border:"2px solid black", marginBottom:"10px"}}>
+                            <div style={{border:"2px solid black", marginBottom:"10px", minWidth:"800px"}}>
                                 <table border="0px">
                                     <tbody>
                                     <tr>
                                         <td style={{verticalAlign:"top", borderRight:"2px solid black"}}>
-                                            <List data={this.state.data}/>
+                                            <List data={this.state.data} onClick={this.articleListOnClick}/>
                                         </td>
-                                        <td style={{width:"100%", minWidth:"300px"}}>
+                                        <td style={{width:"100%", minWidth:"500px", verticalAlign:"top"}}>
                                             <CompanyInfoCard photoLink={this.state.photoLink} content={this.state.content}/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style={{borderTop:"2px solid black", borderRight:"2px solid black"}}>
-                                            <PaginationComponent/>
+                                            <PaginationComponent onClick={this.pageOnCLick}
+                                                                 activeIndex={this.state.activePage}
+                                                                 startingIndex={1} endIndex={3}/>
                                         </td>
                                         <td>
                                             <AuthorAndDateInfo date={this.state.date} author={this.state.author}/>

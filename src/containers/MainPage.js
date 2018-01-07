@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Carousel from "../components/Carousel";
 import CardComponent from "../components/CardComponent";
 import {Container} from "reactstrap";
-import UrunlerimizBaslik from "../components/UrunlerimizBaslik";
+import ProductsHrCaption from "../components/ProductsHrCaption";
 
 const itemList = [
     {
@@ -86,7 +86,7 @@ class Main extends Component {
                 <Container className="col-9">
                     <Carousel items={itemList}/>
                 </Container>
-                <UrunlerimizBaslik/>
+                <ProductsHrCaption/>
                 <CardComponent cardItems={cardList}/>
             </div>
         );

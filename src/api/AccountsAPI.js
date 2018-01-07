@@ -11,12 +11,12 @@ const nullIfNotOk = (response) => {
 };
 const signUp = (accountInfo) => {
     let payload = {
-        username: "bahadir1",
+        username: "bahadir",
         password: "1234",
         email: "sfal@mail.com",
         telephone: "05555555555",
         companyName: "asnckaln",
-        companyAddress: "Gülbahçe/İzmir",
+        companyAddress: "Gıjojıjl",
         title: "student",
         nameSurname: "Bahadır Yurdakul"
     };

@@ -9,7 +9,7 @@ export default class List extends React.Component {
         const listItems = data.map((item, index) => {
             return (
                 <li style={{marginTop:"0px"}}>
-                    <Button color="dark" onClick={() => onClick(index)} className="btn-block" size="lg">
+                    <Button color="dark" block={true} onClick={() => onClick(index)} className="btn-block" size="lg">
                         {item.title}
                     </Button>
                 </li>

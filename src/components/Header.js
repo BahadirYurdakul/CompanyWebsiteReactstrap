@@ -20,7 +20,7 @@ export default class Header extends React.Component {
 
     signUpClicked() {
         var account;
-        alert(JSON.stringify(module.signUp(account)));
+        alert(module.signUp(account));
         this.signUpModal.toggle();
     }
 
