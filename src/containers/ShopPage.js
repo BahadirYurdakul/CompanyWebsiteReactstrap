@@ -56,7 +56,7 @@ class ShopPage extends Component {
                                         <tr>
                                             <td>
                                                 <img className="col-md-12" style={{minWidth:"300px",minHeight:"300px"}}
-                                                     href="#" top src={data.src} alt="Ürün fotoğrafı"/>
+                                                     src={data.src} alt="Ürün fotoğrafı"/>
                                             </td>
                                             <td style={{width:"100%",verticalAlign:"top"}}>
                                                 <ProductsCardInfo info={data.actualProperty} caption={data.name}/>

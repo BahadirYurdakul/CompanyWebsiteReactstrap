@@ -94,7 +94,7 @@ class Main extends Component {
                             <ProductsCard products={products}/>
                     </div>
                     <Container>
-                             <PaginationComponent onClick={this.onClick} activeIndex={1} startingIndex={1} endIndex={3}  />
+                             <PaginationComponent onClick={this.onClick} activeIndex={1} startingIndex={1} endIndex={3}/>
                     </Container>
                 </div>}
             </div>

@@ -13,6 +13,8 @@ class ArticlesPage extends Component {
 
     constructor(props) {
         super(props);
+        this.articleListOnClick = this.articleListOnClick.bind(this);
+        this.pageOnCLick = this.pageOnCLick.bind(this);
 
         this.state = {
             data: [],
@@ -33,12 +35,20 @@ class ArticlesPage extends Component {
         let author = data[0].author;
         let photoLink = data[0].photoLink;
         let htmlContent = data[0].content;
-        let content = <div dangerouslySetInnerHTML={{ __html:"Beklenmeyen bir hata oluştu"}}/>;
+        let content = <div dangerouslySetInnerHTML={{ __html:htmlContent}}/>;
         this.setState({ data });
         this.setState({ date });
         this.setState({ author });
         this.setState({ photoLink });
         this.setState({content});
+    }
+
+    articleListOnClick(index) {
+        alert(index);
+    }
+
+    pageOnCLick(index) {
+        alert(index);
     }
 
     render() {
@@ -60,7 +70,9 @@ class ArticlesPage extends Component {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style={{borderTop:"2px solid black", borderRight:"2px solid black"}}><PaginationComponent/></td>
+                                        <td style={{borderTop:"2px solid black", borderRight:"2px solid black"}}>
+                                            <PaginationComponent/>
+                                        </td>
                                         <td>
                                             <AuthorAndDateInfo date={this.state.date} author={this.state.author}/>
                                         </td>

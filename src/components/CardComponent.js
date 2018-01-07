@@ -11,7 +11,7 @@ export default class CardComponent extends Component {
         const cards = cardItems.map((item) => {
             return (
                 <Card>
-                    <img href="#" top width="100%" src={item.src} alt="Ürün fotoğrafı" height="300" />
+                    <img width="100%" src={item.src} alt="Ürün fotoğrafı" height="300" />
                     <CardBody>
                         <CardTitle>Card title</CardTitle>
                         <CardSubtitle>Card subtitle</CardSubtitle>

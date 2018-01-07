@@ -15,7 +15,7 @@ export default class InfoBox extends Component {
                     <p className="lead col-4">
                         <a href="#/aboutUs">
                             <button color="blue" className="btn-primary" type="button">
-                                <span class="glyphicon">Daha fazla okumak için</span>
+                                <span className="glyphicon">Daha fazla okumak için</span>
                             </button>
                         </a>
                     </p>

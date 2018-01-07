@@ -1,4 +1,4 @@
-const ArticlePath = 'http://10.8.51.198:9000/articles';
+const ArticlePath = 'http://localhost:9000/articles';
 const apigiphypath = 'https://api.giphy.com/v1/gifs/random';
 
 const getObjectFromJson = response => response.json();

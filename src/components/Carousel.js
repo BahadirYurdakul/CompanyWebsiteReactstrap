@@ -51,7 +51,6 @@ export default class CarouselComponent extends Component {
                     key={item.src}
                 >
                     <img src={item.src} alt={item.altText} width={'100%'} height={'500'}/>
-                    <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
                 </CarouselItem>
             );
         });

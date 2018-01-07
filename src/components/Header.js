@@ -2,6 +2,7 @@ import React from 'react';
 import {Container, Nav, Navbar, NavItem, NavLink} from "reactstrap";
 import LoginModal from "./LoginModal";
 import SignUpModal from "./SignUpModal";
+import module from '../api/AccountsAPI';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -18,6 +19,8 @@ export default class Header extends React.Component {
     }
 
     signUpClicked() {
+        var account;
+        alert(JSON.stringify(module.signUp(account)));
         this.signUpModal.toggle();
     }
 
@@ -26,7 +29,7 @@ export default class Header extends React.Component {
         //sayfayı güncelle.
         window.sessionStorage.removeItem("username");
         this.forceUpdate();
-        return;
+        return 0;
     }
 
     render() {
