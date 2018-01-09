@@ -1,4 +1,6 @@
-const accountPath = 'http://localhost:9000/accounts';
+import {requestPath} from "./Util";
+
+const accountPath = requestPath + '/accounts';
 
 const signUp = (accountInfo) => {
     const url = `${accountPath}/signup`;

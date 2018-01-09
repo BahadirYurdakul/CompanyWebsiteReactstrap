@@ -1,2 +1,2 @@
-export let requestPath = "http://localhost:9000";
-export let timeOutMs = 2000;
+export const requestPath = "http://10.8.51.198:9000";
+export const timeOutMs = 2000;

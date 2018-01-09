@@ -3,11 +3,13 @@ import {Container, Nav, Navbar, NavItem, NavLink} from "reactstrap";
 import LoginModal from "./LoginModal";
 import SignUpModal from "./SignUpModal";
 import module from '../api/AccountsAPI';
+import {getToken} from "../api/TokensAPI";
 
 export default class Header extends React.Component {
     constructor(props) {
         super(props);
         this.loginClicked = this.loginClicked.bind(this);
+        this.loginModalClicked = this.loginModalClicked.bind(this);
         this.signUpClicked = this.signUpClicked.bind(this);
         this.logOutClicked = this.logOutClicked.bind(this);
         this.signUpSubmitClicked = this.signUpSubmitClicked.bind(this);
@@ -16,9 +18,39 @@ export default class Header extends React.Component {
         };
     }
 
-    loginClicked() {
+    loginModalClicked() {
         this.loginModal.toggle();
-        window.sessionStorage.setItem("username", "BAHADIR");
+    }
+
+    async loginClicked() {
+        let username = document.getElementById("loginUsername");
+        let password = document.getElementById("loginPassword");
+
+        username.setCustomValidity("");
+        password.setCustomValidity("");
+
+        if(username === null || username.value === undefined || username.value === ""){
+            username.setCustomValidity("Kullanıcı adı boş bırakılamaz.");
+            return;
+        }
+        if(password === null || password.value === undefined || password.value === "")
+        {
+            password.setCustomValidity("Şifre boş bırakılamaz.");
+            return;
+        }
+
+        let usernamePassword = {username: username.value, password: password.value};
+        let token = await getToken(usernamePassword);
+
+        if(token === undefined || token["token"] === undefined)
+        {
+            alert("Kullanıcı adı ve şifre eşleşmedi.");
+            return;
+        }
+
+        window.sessionStorage.setItem("token", token["token"]);
+        window.sessionStorage.setItem("username", username.value);
+        this.loginModal.toggle();
         this.forceUpdate();
     }
 
@@ -57,9 +89,8 @@ export default class Header extends React.Component {
             alert("Başarıyla kayıt oldunuz.");
             this.signUpModal.toggle();
         }
-        else {
+        else
             alert("Kayıt olma sırasında bir hatayla karşılaştık. Lütfen tekrar deneyin.");
-        }
     }
 
     async signUpClicked() {
@@ -67,8 +98,7 @@ export default class Header extends React.Component {
     }
 
     logOutClicked() {
-        //token sil.
-        //sayfayı güncelle.
+        window.sessionStorage.removeItem("token");
         window.sessionStorage.removeItem("username");
         this.forceUpdate();
         return 0;
@@ -88,7 +118,7 @@ export default class Header extends React.Component {
                 </NavLink>;
             secondNavBarSignUp = <NavLink onClick={() => this.logOutClicked()}>Çıkış Yap</NavLink>;
         }else {
-            firstNavBarLogin = <NavLink style={{color:"#000000"}}  href="#" onClick={() => this.loginClicked()}>Giris Yap</NavLink>;
+            firstNavBarLogin = <NavLink style={{color:"#000000"}}  href="#" onClick={() => this.loginModalClicked()}>Giris Yap</NavLink>;
             secondNavBarSignUp = <NavLink style={{color:"#000000"}}  href="#" onClick={() => this.signUpClicked()}>Kayıt Ol</NavLink>
         }
 
@@ -133,7 +163,7 @@ export default class Header extends React.Component {
                     </Container>
 
                 </Navbar>
-                <LoginModal ref={(loginModalIsVisible) => {this.loginModal = loginModalIsVisible}}/>
+                <LoginModal ref={(loginModalIsVisible) => {this.loginModal = loginModalIsVisible}} onLoginClicked={this.loginClicked}/>
                 <SignUpModal
                     ref={(signUpModalIsVisible) => {this.signUpModal = signUpModalIsVisible}}
                     submitCLicked={this.signUpSubmitClicked}

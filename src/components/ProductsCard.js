@@ -16,9 +16,9 @@ export default class ProductsCard extends Component {
                         <tbody>
                         <tr>
                             <td>
-                                <img style={{border:"3px solid black"}} href="#" top width="200" src={item.src} alt="Ürün fotoğrafı" height="200"/></td>
+                                <img style={{border:"3px solid black"}} href="#" top width="200" src={item.photoLink} alt="Ürün fotoğrafı" height="200"/></td>
                             <td style={{width:"100%"}}>
-                                <ProductsCardInfo info={item.info} caption={item.name}/>
+                                <ProductsCardInfo info={item.info} caption={item.productName}/>
                             </td>
                         </tr>
                         </tbody>

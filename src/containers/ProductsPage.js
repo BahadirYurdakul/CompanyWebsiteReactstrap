@@ -4,6 +4,7 @@ import PaginationComponent from "../components/PaginationComponent";
 import {Container} from "reactstrap";
 import module from "../api/ArticleAPI";
 import LoadError from "../components/Error";
+import {getProducts} from "../api/ProductsAPI";
 
 
 const products = [
@@ -66,24 +67,42 @@ const products = [
     }
 ];
 
-
 class Main extends Component {
     constructor(props) {
         super(props);
         this.onClick = this.onClick.bind(this);
+        this.getAndSetProducts = this.getAndSetProducts.bind(this);
         this.state = {
-            loadErr: false
+            loadErr: false,
+            activePage: 1,
+            products: []
         };
     }
 
     async componentDidMount() {
-        //
+        await this.getAndSetProducts(this.state.activePage);
     }
 
-    onClick(index) {
-        alert(index);
+    async getAndSetProducts(page) {
+        let products = await getProducts(page - 1);
+        if(products === undefined)
+        {
+            this.setState({loadErr:true});
+            return;
+        }
+        if(products.length === 0)
+            return;
+        this.setState({
+            products: products,
+            activePage: page
+        });
     }
 
+    async onClick(page) {
+        if(this.state.activePage === page)
+            return;
+        await this.getAndSetProducts();
+    }
 
     render() {
         return (
@@ -91,10 +110,12 @@ class Main extends Component {
                 {this.state.loadErr ? <LoadError/> :
                 <div style={{backgroundColor:"#F2F1F0", height:"100%", minWidth: "800px"}}>
                     <div>
-                            <ProductsCard products={products}/>
+                            <ProductsCard products={this.state.products}/>
                     </div>
                     <Container>
-                             <PaginationComponent onClick={this.onClick} activeIndex={1} startingIndex={1} endIndex={3}/>
+                             <PaginationComponent onClick={this.onClick}
+                                                  activeIndex={this.state.activePage}
+                                                  startingIndex={1} endIndex={3}/>
                     </Container>
                 </div>}
             </div>
