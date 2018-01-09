@@ -10,6 +10,10 @@ export default class Header extends React.Component {
         this.loginClicked = this.loginClicked.bind(this);
         this.signUpClicked = this.signUpClicked.bind(this);
         this.logOutClicked = this.logOutClicked.bind(this);
+        this.signUpSubmitClicked = this.signUpSubmitClicked.bind(this);
+        this.state = {
+            username: window.sessionStorage.getItem("username")
+        };
     }
 
     loginClicked() {
@@ -18,9 +22,30 @@ export default class Header extends React.Component {
         this.forceUpdate();
     }
 
-    signUpClicked() {
-        var account;
-        alert(module.signUp(account));
+    async signUpSubmitClicked() {
+        let account = {
+            username: "13bahadir1",
+            password: "1234",
+            email: "sfal@mail.com",
+            telephone: "05555555555",
+            companyName: "asnckaln",
+            companyAddress: "Gıjojıjl",
+            title: "student",
+            nameSurname: "Bahadır gdsgs"
+        };
+        let status = await module.signUp(account);
+        if(status === 400)
+            alert("Bu kullanıcı adı kullanılıyor");
+        else if(status === 200)
+        {
+            alert("Başarıyla kayıt oldunuz");
+            this.signUpModal.toggle();
+        }
+        else
+            alert("Kayıt olma sırasında bir hatayla karşılaştık. Lütfen tekrar deneyin");
+    }
+
+    async signUpClicked() {
         this.signUpModal.toggle();
     }
 
@@ -41,20 +66,20 @@ export default class Header extends React.Component {
         {
             let usernameClickedPath = "#/user/";
             firstNavBarLogin =
-                <NavLink setyle={{color:"#000000"}} href={usernameClickedPath}>
-                    <h5 style={{marginLeft:15, marginRight:15, color:"#1E90FF", fontSize:"20px"}}>Hoşgeldin {username}</h5>
+                <NavLink href={usernameClickedPath}>
+                    Hoşgeldin {username}
                 </NavLink>;
-            secondNavBarSignUp = <NavLink href="#" onClick={() => this.logOutClicked()}>Çıkış Yap</NavLink>;
+            secondNavBarSignUp = <NavLink onClick={() => this.logOutClicked()}>Çıkış Yap</NavLink>;
         }else {
-            firstNavBarLogin = <NavLink href="#" onClick={() => this.loginClicked()}>Giris Yap</NavLink>;
-            secondNavBarSignUp = <NavLink href="#" onClick={() => this.signUpClicked()}>Kayıt Ol</NavLink>
+            firstNavBarLogin = <NavLink style={{color:"#000000"}}  href="#" onClick={() => this.loginClicked()}>Giris Yap</NavLink>;
+            secondNavBarSignUp = <NavLink style={{color:"#000000"}}  href="#" onClick={() => this.signUpClicked()}>Kayıt Ol</NavLink>
         }
 
         return (
             <div style={{minWidth: "800px"}}>
-                <Navbar className="navbar-light" expand="md">
-                    <Container>
-                        <Nav className="align-items-lg-center" navbar>
+                <Navbar className="navbar-light col-lg-auto navbar-expand-sm">
+                    <Container fluid={true}>
+                        <Nav navbar>
                             <NavItem>
                                 <img src={"http://www.freelogovectors.net/wp-content" +
                                 "/uploads/2012/09/Erdemir-Demir-Celik-Logo.jpg"} height={"70"} alt="logo"
@@ -64,7 +89,7 @@ export default class Header extends React.Component {
                         <Nav navbar>
                             <Nav tabs={true} navbar>
                                 <NavItem>
-                                    <NavLink href="#/"><h5 style={{marginLeft:15, marginRight:15, color:"#000000"}}>Anasayfa</h5></NavLink>
+                                    <NavLink href="#/"><h5 style={{marginLeft:25, marginRight:15, color:"#000000"}}>Anasayfa</h5></NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink href="#/articles"><h5 style={{marginLeft:25, marginRight:15, color:"#000000"}}>Makale ve Eğitimler</h5></NavLink>
@@ -80,19 +105,22 @@ export default class Header extends React.Component {
                                 </NavItem>
                             </Nav>
                         </Nav>
+                        <Nav className="float-md-right">
+                            <NavItem>
+                                {firstNavBarLogin}
+                            </NavItem>
+                            <NavItem>
+                                {secondNavBarSignUp}
+                            </NavItem>
+                        </Nav>
                     </Container>
-                    <Nav className="float-md-right" navbar>
-                        <NavItem>
-                            {firstNavBarLogin}
-                        </NavItem>
-                        <NavItem>
-                            {secondNavBarSignUp}
-                        </NavItem>
-                    </Nav>
 
                 </Navbar>
                 <LoginModal ref={(loginModalIsVisible) => {this.loginModal = loginModalIsVisible}}/>
-                <SignUpModal ref={(signUpModalIsVisible) => {this.signUpModal = signUpModalIsVisible}}/>
+                <SignUpModal
+                    ref={(signUpModalIsVisible) => {this.signUpModal = signUpModalIsVisible}}
+                    submitCLicked={this.signUpSubmitClicked}
+                />
             </div>
         );
     }

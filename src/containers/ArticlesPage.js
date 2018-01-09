@@ -34,7 +34,7 @@ class ArticlesPage extends Component {
         if(page < 1)
             page = 1;
         if(index < 0)
-            index = 0
+            index = 0;
 
         let htmlContent = data[index].content;
         let content = <div dangerouslySetInnerHTML={{ __html:htmlContent}}/>;

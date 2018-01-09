@@ -30,7 +30,7 @@ export default class PaginationComponent extends React.Component {
 
         PaginationItemGroup.push (
             <PaginationItem>
-                <a onClick={() => onClick(endIndex + 1)}>
+                <a onClick={() => onClick(activeIndex + 1)}>
                     <PaginationLink next/>
                 </a>
             </PaginationItem>

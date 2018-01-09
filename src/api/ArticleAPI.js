@@ -1,18 +1,8 @@
 const ArticlePath = 'http://localhost:9000/articles';
-const apigiphypath = 'https://api.giphy.com/v1/gifs/random';
-
 const getObjectFromJson = response => response.json();
-const responseStringify = response => JSON.stringify(response);
-
-const nullIfNotOk = (response) => {
-    if (!response.ok) {
-        console.log(JSON.stringify(response));
-        return null;
-    }
-    return response;
-};
 
 let fetchData = function(url) {
+
     return fetch(url, {
         method: "GET",
         headers: {
@@ -20,10 +10,8 @@ let fetchData = function(url) {
         }
     })
         .then(getObjectFromJson)
-        .catch(function(err) {
-            console.log(err);
-        });
-}
+        .catch(() => undefined);
+};
 
 const getArticles = (page) => {
     const url = `${ArticlePath}/getarticles/page/${page}`;

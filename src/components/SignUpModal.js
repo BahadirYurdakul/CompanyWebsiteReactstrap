@@ -7,7 +7,6 @@ export default class signUpModal extends React.Component {
         this.state = {
             modal: false
         };
-        this.SubmitCLicked = this.SubmitCLicked.bind(this);
         this.toggle = this.toggle.bind(this);
     }
 
@@ -17,11 +16,8 @@ export default class signUpModal extends React.Component {
         });
     }
 
-    SubmitCLicked() {
-        this.toggle();
-    }
-
     render() {
+        const { submitCLicked } = this.props;
         return (
             <div style={{width:"500px"}}>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="modal-lg">
@@ -76,7 +72,7 @@ export default class signUpModal extends React.Component {
                     </ModalBody>
                     <ModalFooter>
                         <button type="button" className="btn-secondary" onClick={this.toggle}>İptal</button>
-                        <button type="button" className="btn-primary" onClick={() => this.SubmitCLicked()}>Onayla</button>
+                        <button type="button" className="btn-primary" onClick={() => submitCLicked()}>Onayla</button>
                     </ModalFooter>
                 </Modal>
             </div>
