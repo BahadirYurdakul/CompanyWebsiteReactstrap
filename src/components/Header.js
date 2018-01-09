@@ -23,26 +23,43 @@ export default class Header extends React.Component {
     }
 
     async signUpSubmitClicked() {
+        function validatePassword(){
+            let password = document.getElementById("password");
+            let password2 = document.getElementById("password2");
+            if(password.value !== password2.value) {
+                password2.setCustomValidity("Şifreler eşleşmiyor.");
+                return false;
+            } else {
+                password2.setCustomValidity('');
+                return true;
+            }
+        }
+
+        if(!validatePassword())
+            return;
+
         let account = {
-            username: "13bahadir1",
-            password: "1234",
-            email: "sfal@mail.com",
-            telephone: "05555555555",
-            companyName: "asnckaln",
-            companyAddress: "Gıjojıjl",
-            title: "student",
-            nameSurname: "Bahadır gdsgs"
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value,
+            email: document.getElementById("email").value,
+            telephone: document.getElementById("telephone").value,
+            companyName: document.getElementById("companyName").value,
+            companyAddress: document.getElementById("companyAddress").value,
+            title: document.getElementById("positionInCompany").value,
+            nameSurname: document.getElementById("name").value
         };
+
         let status = await module.signUp(account);
-        if(status === 400)
-            alert("Bu kullanıcı adı kullanılıyor");
-        else if(status === 200)
-        {
-            alert("Başarıyla kayıt oldunuz");
+
+        if (status === 400)
+            document.getElementById("username").setCustomValidity("Bu kullanıcı kullanılıyor.");
+        else if (status === 200) {
+            alert("Başarıyla kayıt oldunuz.");
             this.signUpModal.toggle();
         }
-        else
-            alert("Kayıt olma sırasında bir hatayla karşılaştık. Lütfen tekrar deneyin");
+        else {
+            alert("Kayıt olma sırasında bir hatayla karşılaştık. Lütfen tekrar deneyin.");
+        }
     }
 
     async signUpClicked() {

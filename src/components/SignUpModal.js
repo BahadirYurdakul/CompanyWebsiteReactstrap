@@ -23,57 +23,69 @@ export default class signUpModal extends React.Component {
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="modal-lg">
                     <ModalHeader toggle={this.toggle}>Kayıt Ol</ModalHeader>
                     <ModalBody>
-                        <Form>
+                        <form>
                             <FormGroup>
-                                <Label for="username">Kullanıcı Adı*</Label>
-                                <Input type="text" name="username" id="username" placeholder="Kullanıcı Adı"/>
+                                <Label>Kullanıcı Adı*</Label>
+                                <input className="form-control" type="text" id="username"
+                                       placeholder="Kullanıcı Adı" required={true}/>
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="email">Email*</Label>
-                                <Input type="email" name="email" id="email" placeholder="Email"/>
+                                <Label>Email*</Label>
+                                <input className="form-control" type="email" name="email"
+                                       id="email" placeholder="Email" required={true}/>
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="name">Ad Soyad*</Label>
-                                <Input type="text" name="name" id="name" placeholder="Ad Soyad"/>
+                                <Label>Ad Soyad*</Label>
+                                <input className="form-control" type="text" name="name"
+                                       id="name" placeholder="Ad Soyad" required={true}/>
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="telephone">Telefon*</Label>
-                                <Input type="telephone" name="telephone" id="telephone" placeholder="Telefon"/>
+                                <Label>Telefon*</Label>
+                                <input className="form-control" type="telephone" name="telephone"
+                                       id="telephone" placeholder="Telefon" required={true}/>
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="companyName">Şirket Adı</Label>
-                                <Input type="text" name="companyName" id="companyName" placeholder="Şirket Adı" />
+                                <Label>Şirket Adı</Label>
+                                <input className="form-control" type="text" name="companyName"
+                                       id="companyName" placeholder="Şirket Adı" />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="companyAddress">Şirket Adresi</Label>
-                                <Input type="text" name="companyAddress" id="companyAddress" placeholder="Şirket Adresi" />
+                                <Label>Şirket Adresi</Label>
+                                <input className="form-control" type="text" name="companyAddress"
+                                       id="companyAddress" placeholder="Şirket Adresi" />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="positionInCompany">Şirket İçi Pozisyon</Label>
-                                <Input type="text" name="positionInCompany" id="positionInCompany" placeholder="Şirket İçi Pozisyon" />
+                                <Label>Şirket İçi Pozisyon</Label>
+                                <input className="form-control" type="text" name="positionInCompany"
+                                       id="positionInCompany" placeholder="Şirket İçi Pozisyon" />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="password">Şifre*</Label>
-                                <Input type="password" name="password" id="password" placeholder="Şifre" />
+                                <Label>Şifre*</Label>
+                                <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                                       title="Sayı, büyük harf, küçük harf ve 6'den fazla karakter bulundurmalıdır"
+                                       type="password" className="form-control" name="password" id="password"
+                                       placeholder="Şifre" required={true}/>
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="password2">Şifrenizi Onaylayın*</Label>
-                                <Input type="password" name="password2" id="password2" placeholder="Şifrenizi Onaylayın" />
+                                <Label>Şifrenizi Onaylayın*</Label>
+                                <input className="form-control" type="password" name="password2" id="password2"
+                                       placeholder="Şifrenizi Onaylayın" required={true}/>
                             </FormGroup>
-                        </Form>
+
+                            <ModalFooter>
+                                <button type="button" className="btn-secondary" onClick={this.toggle}>İptal</button>
+                                <button formAction="post" type="submit" className="btn-primary" onClick={submitCLicked}>Onayla</button>
+                            </ModalFooter>
+                        </form>
                     </ModalBody>
-                    <ModalFooter>
-                        <button type="button" className="btn-secondary" onClick={this.toggle}>İptal</button>
-                        <button type="button" className="btn-primary" onClick={() => submitCLicked()}>Onayla</button>
-                    </ModalFooter>
                 </Modal>
             </div>
         );

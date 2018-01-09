@@ -1,26 +1,30 @@
-const ArticlePath = 'http://localhost:9000/articles';
-const getObjectFromJson = response => response.json();
+import {fetchData, timeout} from "./Helper";
+import {requestPath, timeOutMs} from "./Util";
 
-let fetchData = function(url) {
+const articlePath = requestPath + '/articles';
+const handleError = () => undefined;
 
-    return fetch(url, {
+const getArticles = (page) => {
+    const url = `${articlePath}/getarticles/page/${page}`;
+    let options = {
+        method: "GET",
+        headers: {
+            "Accept": "application/json"
+            }
+    };
+
+    return timeout(timeOutMs, fetchData(url, options)).catch(handleError);
+};
+
+const getArticle = (title) => {
+    const url = `${articlePath}/getarticalinfo/title/${title}`;
+    let options = {
         method: "GET",
         headers: {
             "Accept": "application/json"
         }
-    })
-        .then(getObjectFromJson)
-        .catch(() => undefined);
-};
-
-const getArticles = (page) => {
-    const url = `${ArticlePath}/getarticles/page/${page}`;
-    return fetchData(url);
-};
-
-const getArticle = (title) => {
-    const url = `${ArticlePath}//getarticalinfo/title/${title}`;
-    fetchData(url);
+    };
+    return timeout(timeOutMs, fetchData(url, options)).catch(handleError);
 };
 
 export default module = {
