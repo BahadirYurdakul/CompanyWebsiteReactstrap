@@ -6,7 +6,7 @@ export default class InfoBox extends Component {
         const { info } = this.props;
         const htmlString = info.toString();
         return (
-            <Container className="col-7">
+            <Container className="col-sm-9">
                 <Jumbotron>
                     <h1 className="display-5" style={{color:"#4169E1"}}>CVS Makine</h1>
                     <p className="lead" style={{color:"#4169E1", fontSize:"25px"}}>Lorem Ipsum...</p>

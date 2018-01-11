@@ -50,12 +50,12 @@ class ShopPage extends Component {
         return (
             <div>
                 {this.state.loadErr ? <LoadError/> :
-                    <div id="pageMinWidthWrapper" style={{backgroundColor:"#F2F1F0", height:"100%", paddingTop:"10px"}}>
-                        <Container className="col-lg-auto">
-                                <table>
+                    <div id="pageMinWidthWrapper">
+                        <Container className="col-sm-10">
+                                <table width="100%">
                                         <tr>
                                             <td>
-                                                <img className="col-md-12" style={{minWidth:"300px",minHeight:"300px"}}
+                                                <img className="col-md-12" style={{minWidth:"200px",minHeight:"200px"}}
                                                      src={data.src} alt="Ürün fotoğrafı"/>
                                             </td>
                                             <td style={{width:"100%",verticalAlign:"top"}}>
