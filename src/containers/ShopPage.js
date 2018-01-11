@@ -45,13 +45,13 @@ class ShopPage extends Component {
             name: data.name,
             actualProperty: data.actualProperty,
             src: data.src
-        }
+        };
         
         return (
             <div>
                 {this.state.loadErr ? <LoadError/> :
-                    <div style={{backgroundColor:"#F2F1F0", height:"100%", paddingTop:"10px", minWidth: "800px"}}>
-                        <Container className="col-9">
+                    <div id="pageMinWidthWrapper" style={{backgroundColor:"#F2F1F0", height:"100%", paddingTop:"10px"}}>
+                        <Container className="col-lg-auto">
                                 <table>
                                         <tr>
                                             <td>

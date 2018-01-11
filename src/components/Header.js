@@ -123,8 +123,8 @@ export default class Header extends React.Component {
         }
 
         return (
-            <div style={{minWidth: "800px"}}>
-                <Navbar className="navbar-light col-lg-auto navbar-expand-sm">
+            <div style={{backgroundColor:"#FFFFFF", minWidth:"500px"}}>
+                <Navbar className="navbar-light col-lg-auto navbar-expand-xl">
                     <Container fluid={true}>
                         <Nav navbar>
                             <NavItem>
@@ -152,7 +152,7 @@ export default class Header extends React.Component {
                                 </NavItem>
                             </Nav>
                         </Nav>
-                        <Nav className="float-md-right">
+                        <Nav className="float-md-right" navbar={true}>
                             <NavItem>
                                 {firstNavBarLogin}
                             </NavItem>

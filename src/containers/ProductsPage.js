@@ -108,7 +108,7 @@ class Main extends Component {
         return (
             <div>
                 {this.state.loadErr ? <LoadError/> :
-                <div style={{backgroundColor:"#F2F1F0", height:"100%", minWidth: "800px"}}>
+                <div id="pageMinWidthWrapper">
                     <div>
                             <ProductsCard products={this.state.products}/>
                     </div>

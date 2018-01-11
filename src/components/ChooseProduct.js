@@ -4,9 +4,9 @@ import {FormGroup, Input, Label} from "reactstrap";
 export default class ProductsCard extends Component {
 
     render() {
-        const { productsList } = this.props;
-        let ProductsInputGroup = productsList.map((item) => {
-            return (<option>{item.productName}</option>)
+        const { productOnClick, productsList } = this.props;
+        let ProductsInputGroup = productsList.map((item, index) => {
+            return (<option id={index} onClick={() => productOnClick(index)}>{item.productName}</option>)
         });
 
         return (

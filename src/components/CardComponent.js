@@ -22,7 +22,7 @@ export default class CardComponent extends Component {
         });
 
         return (
-            <Container className="col-9">
+            <Container className="col-9" style={{paddingBottom:"20px"}}>
                 <CardGroup>
                     {cards[0]}{cards[1]}{cards[2]}
                 </CardGroup>

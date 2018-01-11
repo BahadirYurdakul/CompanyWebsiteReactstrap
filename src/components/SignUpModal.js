@@ -23,7 +23,7 @@ export default class signUpModal extends React.Component {
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="modal-lg">
                     <ModalHeader toggle={this.toggle}>Kayıt Ol</ModalHeader>
                     <ModalBody>
-                        <form>
+                        <form action="javascript:{submitCLicked()}">
                             <FormGroup>
                                 <Label>Kullanıcı Adı*</Label>
                                 <input className="form-control" type="text" id="username"
@@ -82,7 +82,9 @@ export default class signUpModal extends React.Component {
 
                             <ModalFooter>
                                 <button type="button" className="btn-secondary" onClick={this.toggle}>İptal</button>
-                                <button formAction="post" type="submit" className="btn-primary" onClick={submitCLicked}>Onayla</button>
+                                <button type="submit" className="btn-primary" onSubmit={submitCLicked}>
+                                    Onayla
+                                </button>
                             </ModalFooter>
                         </form>
                     </ModalBody>

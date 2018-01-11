@@ -62,7 +62,7 @@ export default class UserPage extends Component {
         }
 
         return (
-            <div style={{backgroundColor:"#F2F1F0", minHeight:"100%", height:"100%", minWidth: "800px"}}>
+            <div id="pageMinWidthWrapper" style={{backgroundColor:"#F2F1F0", minHeight:"100%", height:"100%"}}>
                 <h1 style={{textAlign:"center", paddingTop:"30px", marginBottom:"3%"}}>Kullanıcı Bilgileri</h1>
                 <Container className="col-9">
                     <AccountInfoTable userInfo={data} username={username}/>

@@ -79,8 +79,8 @@ class ArticlesPage extends Component {
         return (
             <div>
                 {this.state.loadErr ? <LoadError/> :
-                    <div style={{backgroundColor:"#F2F1F0",minWidth:"800px"}}>
-                        <Container className="col-lg">
+                    <div id="pageMinWidthWrapper">
+                        <Container className="col-lg-auto">
                             <div style={{border:"2px solid black", marginBottom:"10px", minWidth:"800px"}}>
                                 <table border="0px">
                                     <tbody>
@@ -88,7 +88,7 @@ class ArticlesPage extends Component {
                                         <td style={{verticalAlign:"top", borderRight:"2px solid black"}}>
                                             <List data={this.state.data} onClick={this.articleListOnClick}/>
                                         </td>
-                                        <td style={{width:"100%", minWidth:"500px", verticalAlign:"top"}}>
+                                        <td style={{width:"100%", verticalAlign:"top", align:"center"}}>
                                             <CompanyInfoCard photoLink={this.state.photoLink} content={this.state.content}/>
                                         </td>
                                     </tr>
