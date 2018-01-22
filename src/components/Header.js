@@ -13,6 +13,7 @@ export default class Header extends React.Component {
         this.signUpClicked = this.signUpClicked.bind(this);
         this.logOutClicked = this.logOutClicked.bind(this);
         this.signUpSubmitClicked = this.signUpSubmitClicked.bind(this);
+        this.sha256 = this.sha256.bind(this);
         this.state = {
             username: window.sessionStorage.getItem("username")
         };
@@ -39,6 +40,7 @@ export default class Header extends React.Component {
             return;
         }
 
+        //let passwordHash =  this.sha256(password.value);
         let usernamePassword = {username: username.value, password: password.value};
         let token = await getToken(usernamePassword);
 
@@ -70,6 +72,7 @@ export default class Header extends React.Component {
         if(!validatePassword())
             return;
 
+        //let passwordHash = this.sha256(document.getElementById("password").value);
         let account = {
             username: document.getElementById("username").value,
             password: document.getElementById("password").value,
@@ -170,6 +173,33 @@ export default class Header extends React.Component {
                 />
             </div>
         );
+    }
+
+    sha256(str) {
+        // We transform the string into an arraybuffer.
+        let buffer = new TextEncoder("utf-8").encode(str);
+        return crypto.subtle.digest("SHA-256", buffer).then(function (hash) {
+            alert("girdi");
+            return hex(hash);
+        });
+
+        function hex(buffer) {
+            let hexCodes = [];
+            let view = new DataView(buffer);
+            for (let i = 0; i < view.byteLength; i += 4) {
+                // Using getUint32 reduces the number of iterations needed (we process 4 bytes each time)
+                let value = view.getUint32(i);
+                // toString(16) will give the hex representation of the number without padding
+                let stringValue = value.toString(16);
+                // We use concatenation and slice for padding
+                let padding = '00000000';
+                let paddedValue = (padding + stringValue).slice(-padding.length);
+                hexCodes.push(paddedValue);
+            }
+
+            // Join all the hex strings into one
+            return hexCodes.join("");
+        }
     }
 }
 
