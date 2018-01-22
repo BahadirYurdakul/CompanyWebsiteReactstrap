@@ -141,3 +141,10 @@ body{
     -webkit-flex: 0 0 auto;
 }
 
+#headerNavItems{
+    margin-left: 25px;
+    margin-right: 15px;
+    color: #000000;
+    font-size: 18px;
+}
+

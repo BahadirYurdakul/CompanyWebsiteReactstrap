@@ -29,7 +29,7 @@ export default class InfoBox extends Component {
                             <div className="col-sm-2" style={{marginLeft:"2%", marginRight:"2%"}}>
                                 <h5>Makine</h5>
                                 <ul>
-                                    <li><a href="#">Makale ve Eğitimlerimiz</a></li>
+                                    <li><a href="#/articles">Makale ve Eğitimlerimiz</a></li>
                                     <li><a href="#">Bizimle İletişime geçin</a></li>
                                 </ul>
                             </div>
@@ -49,7 +49,7 @@ export default class InfoBox extends Component {
                         </div>
                     </div>
                     <div className="footer-copyright">
-                        <p>© 2018 Copyrighted By Backdoor</p>
+                        <p>© 2018 Copyrighted By CPM</p>
                     </div>
                 </footer>
             </div>

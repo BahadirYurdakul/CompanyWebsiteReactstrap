@@ -81,7 +81,7 @@ class ArticlesPage extends Component {
                 {this.state.loadErr ? <LoadError/> :
                     <div id="pageMinWidthWrapper">
                         <Container className="col-lg-auto">
-                            <div style={{border:"2px solid black", marginBottom:"10px", minWidth:"800px"}}>
+                            <div style={{border:"2px solid black", marginBottom:"10px"}}>
                                 <table border="0px">
                                     <tbody>
                                     <tr>

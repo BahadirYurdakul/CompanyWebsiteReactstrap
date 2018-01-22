@@ -136,19 +136,19 @@ export default class Header extends React.Component {
                         <Nav navbar>
                             <Nav tabs={true} navbar>
                                 <NavItem>
-                                    <NavLink href="#/"><h5 style={{marginLeft:25, marginRight:15, color:"#000000"}}>Anasayfa</h5></NavLink>
+                                    <NavLink href="#/"><h5 id="headerNavItems">Anasayfa</h5></NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="#/articles"><h5 style={{marginLeft:25, marginRight:15, color:"#000000"}}>Makale ve Eğitimler</h5></NavLink>
+                                    <NavLink href="#/articles"><h5 id="headerNavItems">Makale ve Eğitimler</h5></NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="#/products"><h5 style={{marginLeft:25, marginRight:15, color:"#000000"}}>Ürünler</h5></NavLink>
+                                    <NavLink href="#/products"><h5 id="headerNavItems">Ürünler</h5></NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="#/shop"><h5 style={{marginLeft:25, marginRight:15, color:"#000000"}}>Sipariş</h5></NavLink>
+                                    <NavLink href="#/shop"><h5 id="headerNavItems">Sipariş</h5></NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="#/aboutUs"><h5 style={{marginLeft:25, marginRight:15, color:"#000000"}}>Hakkımızda</h5></NavLink>
+                                    <NavLink href="#/aboutUs"><h5 id="headerNavItems">Hakkımızda</h5></NavLink>
                                 </NavItem>
                             </Nav>
                         </Nav>

@@ -5,7 +5,6 @@ export default class OrderTable extends React.Component {
     constructor(props) {
         super(props);
         this.cancelOrderClicked = this.cancelOrderClicked.bind(this);
-
     }
 
     cancelOrderClicked() {

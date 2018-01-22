@@ -46,8 +46,7 @@ const products = [
         'Vivamus pretium ornare est.'
     },
     {
-        src: 'http://www.khd.com/tl_files/images/products/grinding-technology/grinding' +
-        '/roller-presses-cement/rollerpress-enci-02.jpg',
+        src: 'http://www.khd.com/tl_files/images/products/grinding-technology/grinding/roller-presses-cement/rollerpress-enci-02.jpg',
         name: "Product 5",
         //caption: 'Slide 2',
         info:
@@ -85,12 +84,12 @@ class Main extends Component {
 
     async getAndSetProducts(page) {
         let products = await getProducts(page - 1);
-        if(products === undefined)
+        if(page -1 === 0 && products === undefined)
         {
             this.setState({loadErr:true});
             return;
         }
-        if(products.length === 0)
+        if(products === undefined || products.length === 0)
             return;
         this.setState({
             products: products,
@@ -101,7 +100,7 @@ class Main extends Component {
     async onClick(page) {
         if(this.state.activePage === page)
             return;
-        await this.getAndSetProducts();
+        await this.getAndSetProducts(page);
     }
 
     render() {
