@@ -16,7 +16,7 @@ export default class InfoBox extends Component {
                                           width="100%"
                                           style={{border:0}}
                                           src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCSLfXDxUzkyaKK0EOjYgilHY4XjBYom8c
-                                    &q=38.437288, 27.151813">
+                                    &q=38.1957227, 26.8441665">
                                 </iframe>
                             </div>
                             <div className="col-sm-2" style={{marginLeft:"2%", marginRight:"2%"}}>
@@ -31,15 +31,15 @@ export default class InfoBox extends Component {
                             <div className="col-sm-4" style={{marginLeft:"2%", marginRight:"1%"}}>
                                 <h5>İletişim</h5>
                                 <ul>
-                                    <li><div><img height="35px" src={telephoneIcon}/><text>+90 232 238 53 57</text></div></li>
-                                    <li><div><img height="35px" src={telephoneIcon}/><text>+90 542 417 38 01</text></div></li>
-                                    <li><div><img height="35px" src={mailIcon}/><text>ibrahimnuhoğlu@cpmmuhendislik.com</text></div></li>
+                                    <li><div><img height="35px" src={telephoneIcon}/><text> +90 232 238 53 57</text></div></li>
+                                    <li><div><img height="35px" src={telephoneIcon}/><text> +90 542 417 38 01</text></div></li>
+                                    <li><div><img height="35px" src={mailIcon}/><text> ibrahimnuhoğlu@cpmmuhendislik.com</text></div></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div className="footer-copyright">
-                        <p>© 2018 Copyrighted By CPM</p>
+                        <p>© 2018 Copyrighted By CPM Mühendislik</p>
                     </div>
                 </footer>
             </div>

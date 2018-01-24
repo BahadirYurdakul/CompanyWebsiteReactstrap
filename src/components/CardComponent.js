@@ -13,8 +13,7 @@ export default class CardComponent extends Component {
                 <Card>
                     <img width="100%" src={item.src} alt="Ürün fotoğrafı" height="300" />
                     <CardBody>
-                        <CardTitle>Card title</CardTitle>
-                        <CardSubtitle>Card subtitle</CardSubtitle>
+                        <CardTitle><b>{item.title}</b></CardTitle>
                         <CardText>{item.info}</CardText>
                     </CardBody>
                 </Card>

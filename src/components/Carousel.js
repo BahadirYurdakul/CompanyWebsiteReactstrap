@@ -48,7 +48,7 @@ export default class CarouselComponent extends Component {
                 <CarouselItem
                     onExiting={this.onExiting}
                     onExited={this.onExited}
-                    key={item.src}
+                    key={item.altText}
                 >
                     <img src={item.src} alt={item.altText} width={'100%'} height={'500'}/>
                 </CarouselItem>
