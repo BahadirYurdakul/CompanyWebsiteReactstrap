@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container, Nav, Navbar, NavItem, NavLink} from "reactstrap";
+import companyLogo from "../images/CompanyLogo.JPG";
 import LoginModal from "./LoginModal";
 import SignUpModal from "./SignUpModal";
 import module from '../api/AccountsAPI';
@@ -8,6 +9,7 @@ import {getToken} from "../api/TokensAPI";
 export default class Header extends React.Component {
     constructor(props) {
         super(props);
+        /*
         this.loginClicked = this.loginClicked.bind(this);
         this.loginModalClicked = this.loginModalClicked.bind(this);
         this.signUpClicked = this.signUpClicked.bind(this);
@@ -17,8 +19,10 @@ export default class Header extends React.Component {
         this.state = {
             username: window.sessionStorage.getItem("username")
         };
+        */
     }
 
+    /*
     loginModalClicked() {
         this.loginModal.toggle();
     }
@@ -106,8 +110,10 @@ export default class Header extends React.Component {
         this.forceUpdate();
         return 0;
     }
+    */
 
     render() {
+        /*
         let username = window.sessionStorage.getItem("username");
         let firstNavBarLogin;
         let secondNavBarSignUp;
@@ -124,57 +130,76 @@ export default class Header extends React.Component {
             firstNavBarLogin = <NavLink style={{color:"#000000"}}  href="#" onClick={() => this.loginModalClicked()}>Giris Yap</NavLink>;
             secondNavBarSignUp = <NavLink style={{color:"#000000"}}  href="#" onClick={() => this.signUpClicked()}>Kayıt Ol</NavLink>
         }
+        */
 
         return (
-            <div style={{backgroundColor:"#FFFFFF", minWidth:"500px"}}>
+            <div style={{backgroundColor: "#FFFFFF", minWidth:"500px"}}>
                 <Navbar className="navbar-light col-lg-auto navbar-expand-xl">
                     <Container fluid={true}>
-                        <Nav navbar>
+                        <Nav>
                             <NavItem>
-                                <img src={"http://www.freelogovectors.net/wp-content" +
-                                "/uploads/2012/09/Erdemir-Demir-Celik-Logo.jpg"} height={"70"} alt="logo"
-                                style={{minWidth:"50px"}}/>
+                                <img src={companyLogo} height={"80"} alt="logo"
+                                     style={{minWidth: "50px"}}/>
+                                <text style={{marginLeft:"5px", fontSize:"15px", color:"#ff0000"}}>CPM MÜHENDİSLİK</text>
                             </NavItem>
                         </Nav>
-                        <Nav navbar>
-                            <Nav tabs={true} navbar>
+                        <Nav>
+                            <Nav tabs={true}>
                                 <NavItem>
-                                    <NavLink href="#/"><h5 id="headerNavItems">Anasayfa</h5></NavLink>
+                                    <NavLink href="#/"><h5 id="headerNavItems">ANASAYFA</h5></NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="#/articles"><h5 id="headerNavItems">Makale ve Eğitimler</h5></NavLink>
+                                    <NavLink href="#/articles"><h5 id="headerNavItems">MAKALE VE EĞİTİMLER</h5>
+                                    </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="#/products"><h5 id="headerNavItems">Ürünler</h5></NavLink>
+                                    <NavLink href="#/products"><h5 id="headerNavItems">HİZMETLER</h5></NavLink>
                                 </NavItem>
+                                {/*
                                 <NavItem>
-                                    <NavLink href="#/shop"><h5 id="headerNavItems">Sipariş</h5></NavLink>
+                                    <NavLink href="#/shop"><h5 id="headerNavItems">SİPARİŞ</h5></NavLink>
                                 </NavItem>
+                                */}
                                 <NavItem>
-                                    <NavLink href="#/aboutUs"><h5 id="headerNavItems">Hakkımızda</h5></NavLink>
+                                    <NavLink href="#/aboutUs"><h5 id="headerNavItems">HAKKIMIZDA</h5></NavLink>
                                 </NavItem>
                             </Nav>
                         </Nav>
-                        <Nav className="float-md-right" navbar={true}>
-                            <NavItem>
-                                {firstNavBarLogin}
-                            </NavItem>
-                            <NavItem>
+                        <Nav className="float-md-right" navbar={true} vertical={true}>
+                            <ul>
+                                <li id="headerSlogan">Sustainable</li>
+                                <li id="headerSlogan">Smart</li>
+                                <li id="headerSlogan">Solutions</li>
+                            </ul>
+                            {
+                                /*
+                                <NavItem>
+                                    {firstNavBarLogin}
+                                </NavItem>
+                                <NavItem>
                                 {secondNavBarSignUp}
-                            </NavItem>
+                                </NavItem>
+                                */
+                            }
                         </Nav>
                     </Container>
-
                 </Navbar>
-                <LoginModal ref={(loginModalIsVisible) => {this.loginModal = loginModalIsVisible}} onLoginClicked={this.loginClicked}/>
-                <SignUpModal
+                {
+                    /*
+                    <LoginModal ref={(loginModalIsVisible) => {
+                        this.loginModal = loginModalIsVisible
+                    }} onLoginClicked={this.loginClicked}/>
+                    < SignUpModal
                     ref={(signUpModalIsVisible) => {this.signUpModal = signUpModalIsVisible}}
                     submitCLicked={this.signUpSubmitClicked}
-                />
+                    />
+                    */
+                }
             </div>
         );
     }
 
+    /*
     sha256(str) {
         // We transform the string into an arraybuffer.
         let buffer = new TextEncoder("utf-8").encode(str);
@@ -201,5 +226,6 @@ export default class Header extends React.Component {
             return hexCodes.join("");
         }
     }
+    */
 }
 

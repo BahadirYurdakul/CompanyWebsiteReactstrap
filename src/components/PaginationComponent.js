@@ -38,7 +38,7 @@ export default class PaginationComponent extends React.Component {
 
 
         return (
-            <div style={{margin:"5px 0px 5px 0px"}}>
+            <div style={{margin:"5px 0px 0px 0px", paddingBottom:"5px"}}>
                 <Pagination className="justify-content-center" size="lg">
                     {PaginationItemGroup}
                 </Pagination>
