@@ -13,6 +13,7 @@ import esk from "../images/servicesPhotos/ESK.JPG";
 import kcsfirin from "../images/servicesPhotos/kcsfirin.JPG";
 import rüzgar from "../images/servicesPhotos/rüzgar.JPG";
 import sancim from "../images/servicesPhotos/sancim.JPG";
+import ServiceList from "../components/ServiceList";
 
 
 const products = [
@@ -127,7 +128,9 @@ class Main extends Component {
                 {this.state.loadErr ? <LoadError/> :
                 <div id="pageMinWidthWrapper">
                     <div>
-                            <PhotoInsideText products={this.state.products}/>
+                        <h3 style={{textAlign:"center", paddingTop:"30px", color:"#0000ff"}}><i>FAALİYET ALANLARIMIZ</i></h3>
+                        <ServiceList products={this.state.products}/>/>
+                        {/*<PhotoInsideText products={this.state.products}/>*/}
                     </div>
                 </div>}
             </div>
