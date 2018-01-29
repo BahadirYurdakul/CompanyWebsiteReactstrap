@@ -15,7 +15,7 @@ const data = [
         content:
             <div>
                 <p>
-                    2013 yılında İzmir’de kurulan CPM Mühendislik, Çimento, Maden, Demir Çelik, Seramik, Lastik
+                    2013 yılında İzmir’de kurulan CPM Mühendislik; Çimento, Maden, Demir Çelik, Seramik, Lastik
                     , Enerji (GES-RES-HES-Termik Santraller) sektörlerinde sunmuş olduğu “Sürdürülebilir Akılcı Çözümler”
                     ve periyodik kontroller ile işletmelerin verimliliğine fayda sağlamıştır.
                     “AKIŞKAN YÖNETİMİ” projeleri ile işletmelerin bakım ve enerji maliyetlerinde avantaj sağlanmıştır.

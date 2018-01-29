@@ -18,10 +18,11 @@ export default class ServiceList extends Component {
                         <ul>
                             <li>
                                 <Container className="col-10">
-                                    <h2 style={{marginBottom:"5px", marginTop:"10px"}}>{item.name}</h2>
+                                    <h2 >{item.name}</h2>
                                 </Container>
-                                <img align="middle" className="col-7" style={{alignSelf:"center", margin:"0px auto 30px auto", minWidth:"400px"}}
-                                     src={item.src} alt="Hizmet" height="300px"/>
+                                <img align="middle" className="col-7" style={{alignSelf:"center", margin:"0px auto 30px auto"
+                                    , minWidth:"220px", minHeight:"220px"}}
+                                     src={item.src} alt="Hizmet"/>
                             </li>
                         </ul>
                     </div>
@@ -30,7 +31,7 @@ export default class ServiceList extends Component {
         });
 
         return (
-            <div style={{paddingBottom:"40px", paddingTop:"30px"}}>
+            <div>
                 <Container className="col-10">
                     {productCards}
                 </Container>

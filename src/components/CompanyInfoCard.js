@@ -4,7 +4,7 @@ import {Container} from "reactstrap";
 const CompanyInfoCard = ({photoLink, content}) => (
     <Container fluid={true}>
         <Container className="col-6" fluid={true}>
-            {photoLink ? <img style={{width:"100%", minHeight:"100px"}}
+            {photoLink ? <img style={{width:"100%", minHeight:"200px"}}
                         src={photoLink} alt="CPM Mühendislik"/> :
                 <span>Fotoğraf bulunamadı</span>}
         </Container>

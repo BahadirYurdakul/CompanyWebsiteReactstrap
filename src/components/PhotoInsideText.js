@@ -26,7 +26,7 @@ export default class PhotoInsideText extends Component {
         });
 
         return (
-            <div style={{paddingBottom:"50px", paddingTop:"30px"}}>
+            <div>
                 <Container className="col-10">
                     {productCards}
                 </Container>

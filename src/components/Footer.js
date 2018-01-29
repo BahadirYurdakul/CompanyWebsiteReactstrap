@@ -30,10 +30,10 @@ export default class InfoBox extends Component {
                             </div>
                             <div className="col-sm-4" style={{marginLeft:"2%", marginRight:"1%"}}>
                                 <h5>İletişim</h5>
-                                <ul>
+                                <ul style={{minWidth:"200px"}}>
                                     <li><div><img height="35px" src={telephoneIcon}/><text> +90 232 238 53 57</text></div></li>
                                     <li><div><img height="35px" src={telephoneIcon}/><text> +90 542 417 38 01</text></div></li>
-                                    <li><div><img height="35px" src={mailIcon}/><text> ibrahimnuhoğlu@cpmmuhendislik.com</text></div></li>
+                                    <li><div><img height="35px" src={mailIcon}/><text> ibrahimnuhoglu@cpmmuhendislik.com</text></div></li>
                                 </ul>
                             </div>
                         </div>

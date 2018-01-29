@@ -127,10 +127,33 @@ class Main extends Component {
             <div>
                 {this.state.loadErr ? <LoadError/> :
                 <div id="pageMinWidthWrapper">
-                    <div>
-                        <h3 style={{textAlign:"center", paddingTop:"30px", color:"#0000ff"}}><i>FAALİYET ALANLARIMIZ</i></h3>
-                        <ServiceList products={this.state.products}/>/>
+                    <div style={{paddingBottom:"40px", paddingTop:"30px"}}>
+                        <Container className="col-10">
+                        <h3 style={{textAlign:"center", color:"#0000ff"}}><i>FAALİYET ALANLARIMIZ</i></h3>
+                        <table>
+                            <tr>
+                                <td>
+                                    <ServiceList products={this.state.products}/>
+                                </td>
+                                <td style={{verticalAlign:"top", paddingTop:"40px", width:"60%", paddingLeft:"20px", minWidth:"50px"}}>
+                                    <h4 style={{marginBottom:"30px", paddingLeft:"20px"}}>VE...</h4>
+                                    <ul style={{fontSize:"20px"}}>
+                                        <li>Değirmen ve Döner Fırın Açık dişli kontrolleri</li>
+                                        <li>Değirmen ve Döner Fırın Fener-Pinyon dişli değişimi ve devreye alma işleri</li>
+                                        <li>Değirmen ve Döner Fırın Fener-Pinyon dişli ayarları</li>
+                                        <li>Merkezi yağlama sistemi kurulumu ve kontrolü</li>
+                                        <li>RES tahrik gruplarının kontrolü</li>
+                                        <li>Dik değirmen kontrolleri</li>
+                                        <li>Dik değirmen kontrolleri</li>
+                                        <li>GES kabul öncesi ön raporlama</li>
+                                        <li>HES mekanik kontrolleri</li>
+                                        <li>Akışkan yönetimi</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
                         {/*<PhotoInsideText products={this.state.products}/>*/}
+                        </Container>
                     </div>
                 </div>}
             </div>
