@@ -5,12 +5,12 @@ const CompanyInfoCard = ({photoLink, content}) => (
     <Container fluid={true}>
         <Container className="col-6" fluid={true}>
             {photoLink ? <img style={{width:"100%", minHeight:"100px"}}
-                        src={photoLink} alt="CPM makine"/> :
+                        src={photoLink} alt="CPM Mühendislik"/> :
                 <span>Fotoğraf bulunamadı</span>}
         </Container>
-        <div style={{margin:"30px 10px"}}>
+        <text id="textFont" style={{margin:"30px 10px"}}>
             {content}
-        </div>
+        </text>
     </Container>
 );
 

@@ -148,10 +148,12 @@ export default class Header extends React.Component {
                                 <NavItem>
                                     <NavLink href="#/"><h5 id="headerNavItems">ANASAYFA</h5></NavLink>
                                 </NavItem>
-                                <NavItem>
-                                    <NavLink href="#/articles"><h5 id="headerNavItems">MAKALE VE EĞİTİMLER</h5>
-                                    </NavLink>
-                                </NavItem>
+                                {/*
+                                    <NavItem>
+                                        <NavLink href="#/articles"><h5 id="headerNavItems">MAKALE VE EĞİTİMLER</h5>
+                                        </NavLink>
+                                    </NavItem>
+                                */}
                                 <NavItem>
                                     <NavLink href="#/services"><h5 id="headerNavItems">HİZMETLER</h5></NavLink>
                                 </NavItem>

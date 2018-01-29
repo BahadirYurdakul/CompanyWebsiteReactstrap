@@ -22,7 +22,7 @@ class App extends Component {
                     <Header/>
                     <div className="content">
                         <Route exact path="/" component={MainPage}/>
-                        <Route path="/articles" component={ArticlesPage}/>
+                        {/*<Route path="/articles" component={ArticlesPage}/>*/}
                         <Route path="/services" component={ProductsPage}/>
                         <Route path="/aboutUs" component={CompanyPage}/>
                         {/*<Route path="/shop" component={ShopPage}/>*/}

@@ -18,7 +18,7 @@ export default class PhotoInsideText extends Component {
                         <img style={{border:"3px solid black", marginRight:"30px"}} align="left" width="180px"
                              src={item.src} alt="Hizmet fotoğrafı" height="180px"/>
                         <h2 align="center" style={{marginBottom:"20px"}}>{item.name}</h2>
-                        <text fontSize="30px" style={{fontFamily:"arial,helvetica", textIndent:"30px"}}>{item.info}</text>
+                        <text id="textFont">{item.info}</text>
                     </div>
                     {horizontalLine}
                 </Container>

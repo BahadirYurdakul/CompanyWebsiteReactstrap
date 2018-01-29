@@ -21,7 +21,7 @@ export default class ProductsCard extends Component {
                                 <tbody>
                                 <tr>
                                     <td>
-                                        <img style={{border:"3px solid black"}} href="#" top width="200" src={item.photoLink} alt="Hizmet fotoğrafı" height="200"/></td>
+                                        <img style={{border:"3px solid black"}} href="#" top width="200" src={item.photoLink} alt="Hizmetler" height="200"/></td>
                                     <td style={{minWidth:"240px"}}>
                                         <ProductsCardInfo info={item.info} caption={item.productName}/>
                                     </td>
@@ -36,9 +36,9 @@ export default class ProductsCard extends Component {
         });
 
         return (
-            <div style={{marginBottom:"50px"}}>
+            <div style={{paddingBottom:"50px"}}>
                 <Container className="col-10">
-                    {productCards}
+                    {/*productCards*/}
                 </Container>
             </div>
         );
