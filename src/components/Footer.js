@@ -15,7 +15,7 @@ export default class InfoBox extends Component {
                                 <iframe   height="300"
                                           width="100%"
                                           style={{border:0}}
-                                          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCSLfXDxUzkyaKK0EOjYgilHY4XjBYom8c
+                                          src=<api_key>
                                     &q=38.1957227, 26.8441665">
                                 </iframe>
                             </div>
